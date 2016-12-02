@@ -1,0 +1,6 @@
+framework module JHB_HUDView {
+  umbrella header "JHB_HUDView-umbrella.h"
+
+  export *
+  module * { export * }
+}
