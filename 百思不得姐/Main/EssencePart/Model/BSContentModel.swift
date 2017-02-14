@@ -16,7 +16,7 @@ class BSContentModel: NSObject {
     var create_time : String = ""// 创建时间
     var hate : String = ""// 讨厌
     var love : String = ""// 喜欢
-//    var ID : String = ""//id号❌
+    var ID : String = ""//id号❌
     
     var height : String = ""// 资源高度
     var width : String = ""// 资源宽度
@@ -49,6 +49,10 @@ class BSContentModel: NSObject {
         super.init()
         setValuesForKeys(dict)
     }
-    override func setValue(_ value: Any?, forUndefinedKey key: String) {}
+    override func setValue(_ value: Any?, forUndefinedKey key: String) {
+        if key=="id" {
+            self.ID = value as! String
+        }
+    }
     
 }
