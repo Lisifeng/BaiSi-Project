@@ -11,7 +11,7 @@ import UIKit
 class BSCheckImageModel: NSObject {
     
     var transiImageView = UIImageView()
-    var transiURL = NSString()
+    var transiURL = String()
     var transiImage = UIImage()
     
     

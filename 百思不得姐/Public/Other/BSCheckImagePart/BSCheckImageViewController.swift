@@ -120,7 +120,8 @@ class BSCheckImageViewController: UIViewController,UICollectionViewDataSource, U
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BSCheckImageCollectionViewCell", for: indexPath) as! BSCheckImageCollectionViewCell
         cell.delegate = self
         let currentModel = imageArray[indexPath.row] as! BSCheckImageModel
-        currentImage = cell.displayImage(image: currentModel.transiURL)
+//        currentImage = cell.displayImage(image: currentModel.transiURL as NSString)
+        currentImage = cell.setCheckImageModel(model: currentModel)
         return cell
         
     }
@@ -146,7 +147,7 @@ class BSCheckImageViewController: UIViewController,UICollectionViewDataSource, U
         JHB_HUDView.hideProgressOfDIYType()
         if error != nil {
             JHB_HUDView.showMsg("\(error)" as NSString)
-            print(error)
+            print(error!)
             return
         }
         JHB_HUDView.showMsg("保存成功😁")

@@ -40,7 +40,7 @@ class BSSetViewController: BSThemeViewController,UITableViewDelegate,UITableView
         if !(cell?.isEqual(nil))! {
             cell = UITableViewCell.init(style: UITableViewCellStyle.default, reuseIdentifier: "cell1")
         }
-        cell?.textLabel?.text = "清楚缓存"+"\(Int(BSFileManager.getFolderSizeWithPath(folderpath:  "\(NSHomeDirectory())"+"/"+"Library"+"/"+"Caches")))"+"M"
+        cell?.textLabel?.text = "清除缓存"+"\(Int(BSFileManager.getFolderSizeWithPath(folderpath:  "\(NSHomeDirectory())"+"/"+"Library"+"/"+"Caches")))"+"M"
         
         return cell!
     }
@@ -52,7 +52,7 @@ class BSSetViewController: BSThemeViewController,UITableViewDelegate,UITableView
 //        BSFileManager.delegate = self
         let ifClear = BSFileManager.clearFolderWithPath(folderpath: "\(NSHomeDirectory())"+"/"+"Library"+"/"+"Caches")
         if ifClear {
-            JHB_HUDView.showMsg("清楚成功!")
+            JHB_HUDView.showMsg("清除成功!")
             self.mainTableView.reloadData()
         }
     }

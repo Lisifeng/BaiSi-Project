@@ -23,7 +23,7 @@ class BSPictueViewCell: UITableViewCell {
     var markLabel = UILabel()
     var showImageView = UIImageView()
     var bottomView = UIView()
-    var currentModel = BSContentModel()
+    var currentModel : BSContentModel?
     var placeHolder = UIImage()
     
     
@@ -125,29 +125,29 @@ class BSPictueViewCell: UITableViewCell {
     
     //MARK: - Set
     func ReleaseContentModel(model:BSContentModel) {
-        let type = model._type.integerValue
+        let type = (model.type as NSString).integerValue
         
-        iconImageView.kf.setImage(with: URL(string: model._profile_image as String), placeholder: UIImage.init(named: "tabBar_aboutMeVc_selected_icon"), options: [.transition(ImageTransition.fade(1.0))], progressBlock: { receivedSize in
+        iconImageView.kf.setImage(with: URL(string: model.profile_image as String), placeholder: UIImage.init(named: "tabBar_aboutMeVc_selected_icon"), options: [.transition(ImageTransition.fade(1.0))], progressBlock: { receivedSize in
         }) { (image, error,cacheType, imageURL) in
         }
         
-        nameLabel.text = model._name as String
+        nameLabel.text = model.name as String
         nameLabel.sizeToFit()
-        timeLabel.text = model._create_time as String
+        timeLabel.text = model.create_time as String
         timeLabel.sizeToFit()
-        markLabel.text = model._text as String
+        markLabel.text = model.text as String
         markLabel.sizeToFit()
         
         switch type {
         case 10:
-            showImageView.kf.setImage(with:URL(string: model._image0 as String), placeholder: UIImage.init(named: "tabBar_aboutMeVc_selected_icon"), options: [.transition(ImageTransition.fade(1.0))], progressBlock: { receivedSize, totalSize in
+            showImageView.kf.setImage(with:URL(string: model.image0 as String), placeholder: UIImage.init(named: "tabBar_aboutMeVc_selected_icon"), options: [.transition(ImageTransition.fade(1.0))], progressBlock: { receivedSize, totalSize in
                 },completionHandler: { (image, error,cacheType, imageURL) in
             })
             
             break
             
         case 41:
-            if !(model._showImage.size==CGSize.zero) {
+            if ((model._showImage.size.width) > 0) {
                 self.showImageView.image = model._showImage
             }else{
                 self.getShowImageWith(model: model)
@@ -164,7 +164,7 @@ class BSPictueViewCell: UITableViewCell {
     func getShowImageWith(model:BSContentModel) {
         DispatchQueue.global().async {
             print("开一条全局队列异步执行任务")
-            let showImage = self.getShowImageForAwhileWith(url:model._videoUri)
+            let showImage = self.getShowImageForAwhileWith(url:model.video_uri as NSString)
             model._showImage = showImage
             DispatchQueue.main.async {
                 print("在主队列执行任务")
@@ -176,7 +176,7 @@ class BSPictueViewCell: UITableViewCell {
             }
         }
     }
-    
+    // 获取帧图片
     func getShowImageForAwhileWith(url:NSString) -> UIImage {
         
         let asset: AVURLAsset = AVURLAsset.init(url: URL.init(string: url as String)!, options: nil)

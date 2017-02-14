@@ -86,14 +86,13 @@ class nextViewController: BSThemeViewController,UITableViewDelegate,UITableViewD
 
         let transiArray = NSMutableArray()
         let checkImageModel = BSCheckImageModel()
-        checkImageModel.transiURL = cell.currentModel._image0
+        checkImageModel.transiURL = (cell.currentModel?.image0)!
         checkImageModel.transiImageView = cell.showImageView
         checkImageModel.transiImage = cell.showImageView.image!
         
         transiArray.add(checkImageModel)
         
         let checkVc = BSCheckImageViewController()
-//        checkVc.imageArray = [cell.currentModel._image0]
         checkVc.imageArray = transiArray
         checkVc.presentedFromThisViewController(VC:self)
 //        self.present(checkVc, animated: false, completion: nil)
@@ -141,7 +140,8 @@ class nextViewController: BSThemeViewController,UITableViewDelegate,UITableViewD
         }
         _ = NSDictionary()
         for contentDic in contentlist{
-            let contentM = BSContentModel().initWithDict(Dic: contentDic as! NSDictionary)
+            let contentM = BSContentModel.init(dict: (contentDic as! NSDictionary) as! [String : Any] as! [String : NSObject])
+            
             self.contentModelArray.add(contentM)
         }
         

@@ -41,10 +41,6 @@ class EssenceViewController: BSThemeViewController , UIScrollViewDelegate , UITa
         viewNumber = topicsArray.count
         self.setUpSubViews()
         self.setFirstView()
-        
-        
-        
-//        self.getPictureNetWorksWithPage(page: 1)
     }
     func setUpSubViews() {
         
@@ -66,12 +62,9 @@ class EssenceViewController: BSThemeViewController , UIScrollViewDelegate , UITa
             let contentView = UIView.init(frame: CGRect.init(x: CGFloat(index)*_width, y: 0, width: _width, height: mainScrollView.bounds.size.height))
             contentView.backgroundColor = BSColor.colorWithHex(0xcccccc)
             contentView.tag = index
-            
             mainScrollView.addSubview(contentView)
             contentViews.add(contentView)
         }
-        
-        
     }
     
     func setFirstView() {
@@ -146,7 +139,6 @@ class EssenceViewController: BSThemeViewController , UIScrollViewDelegate , UITa
             return
         }
         UIView.animate(withDuration: 0.25, animations: {
-            //            self.mainScrollView.setContentOffset(CGPoint.init(x: offSetX, y: 0), animated: true)
             self.mainScrollView.contentOffset = CGPoint.init(x: offSetX, y: 0)
         }) { (false) in
             self.scrollViewDidEndDecelerating(self.mainScrollView)
@@ -453,7 +445,7 @@ class EssenceViewController: BSThemeViewController , UIScrollViewDelegate , UITa
         }
         _ = NSDictionary()
         for contentDic in contentlist{
-            let contentM = BSContentModel().initWithDict(Dic: contentDic as! NSDictionary)
+             let contentM = BSContentModel(dict: (contentDic as! NSDictionary) as! [String : Any] as! [String : NSObject])
             self.pictureMuArr.add(contentM)
         }
         (self.tableViewArray[0] as! UITableView).isHidden = false
@@ -492,7 +484,7 @@ class EssenceViewController: BSThemeViewController , UIScrollViewDelegate , UITa
         }
         _ = NSDictionary()
         for contentDic in contentlist{
-            let contentM = BSContentModel().initWithDict(Dic: contentDic as! NSDictionary)
+            let contentM = BSContentModel(dict: (contentDic as! NSDictionary) as! [String : Any] as! [String : NSObject])
             self.videoMuArr.add(contentM)
         }
         (self.tableViewArray[1] as! UITableView).isHidden = false
@@ -506,7 +498,7 @@ class EssenceViewController: BSThemeViewController , UIScrollViewDelegate , UITa
         if _curIndex == 0 {
             let transiArray = NSMutableArray()
             let checkImageModel = BSCheckImageModel()
-            checkImageModel.transiURL = cell.currentModel._image0
+            checkImageModel.transiURL = (cell.currentModel?.image0)!
             checkImageModel.transiImageView = cell.showImageView
             checkImageModel.transiImage = cell.showImageView.image!
             
@@ -517,7 +509,7 @@ class EssenceViewController: BSThemeViewController , UIScrollViewDelegate , UITa
             checkVc.presentedFromThisViewController(VC:self)
         }else if _curIndex == 1 {
             let checkVideoVc = BSCheckVideoController()
-            checkVideoVc.setPlayerViewWithUrl(url: cell.currentModel._videoUri)
+            checkVideoVc.setPlayerViewWithUrl(url: (cell.currentModel?.video_uri)! as NSString)
             self.present(checkVideoVc, animated: false, completion: nil)
         }
         

@@ -91,7 +91,7 @@ class secNextViewController: BSThemeViewController,UITableViewDelegate,UITableVi
     func BSPictueViewCellShowImageViewClicked(cell:BSPictueViewCell){
         
         let checkVideoVc = BSCheckVideoController()
-        checkVideoVc.setPlayerViewWithUrl(url: cell.currentModel._videoUri)
+//        checkVideoVc.setPlayerViewWithUrl(url: cell.contentMode.videoUri as NSString)
         self.present(checkVideoVc, animated: false, completion: nil)
         
     }
@@ -129,7 +129,7 @@ class secNextViewController: BSThemeViewController,UITableViewDelegate,UITableVi
         }
         _ = NSDictionary()
         for contentDic in contentlist{
-            let contentM = BSContentModel().initWithDict(Dic: contentDic as! NSDictionary)
+            let contentM = BSContentModel.init(dict: (contentDic as! NSDictionary) as! [String : Any] as! [String : NSObject])
             self.contentModelArray.add(contentM)
         }
         

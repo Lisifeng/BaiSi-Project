@@ -75,8 +75,7 @@ class BSCheckImageCollectionViewCell: UICollectionViewCell {
             */
             },completionHandler: { (image, error,cacheType, imageURL) in
         })
-        
-//        let imageHeight = (self.coreScrollView._zoomImageView.image?.size.height)!
+
         let imageSize = self.coreScrollView._zoomImageView.image?.size
         let imageHeight = ScreenWidth * (imageSize?.height)! / (imageSize?.width)!
         
@@ -85,7 +84,7 @@ class BSCheckImageCollectionViewCell: UICollectionViewCell {
             self.coreScrollView._zoomImageView.frame = CGRect.init(x: 0, y: (ScreenHeight-imageHeight)/2, width: ScreenWidth, height: imageHeight)
         }else{
             self.coreScrollView.contentSize = CGSize.init(width: ScreenWidth, height: imageHeight)
-            self.coreScrollView._zoomImageView.frame = CGRect.init(x: 0, y: 0, width: ScreenWidth, height: imageHeight)// (self.coreScrollView._zoomImageView.image?.size.width)!
+            self.coreScrollView._zoomImageView.frame = CGRect.init(x: 0, y: 0, width: ScreenWidth, height: imageHeight)
         }
       
         return self.coreScrollView._zoomImageView.image!
@@ -107,7 +106,7 @@ class BSCheckImageCollectionViewCell: UICollectionViewCell {
             
             return model.transiImage
         }else{
-            let resultImage = self.displayImage(image: model.transiURL)
+            let resultImage = self.displayImage(image: model.transiURL as NSString)
             return resultImage
         }
         

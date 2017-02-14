@@ -61,7 +61,7 @@ class BSTabBar: UIView {
         
         buttonItem1.setImageAndContent(UIImage.init(named: "tabBar_timeLineVc_normal_icon")!, content: "精华")
         buttonItem2.setImageAndContent(UIImage.init(named: "tabBar_singhoodVc_normal_icon")!, content: "最新")
-        buttonItem3.setImageAndContent(UIImage.init(named: "tabBar_makeFriendVc_4_5s_normal_icon")!, content: "")
+        buttonItem3.setImageAndContent(UIImage.init(named: "tabBar_makeFriendVc_normal_icon")!, content: "")
         buttonItem4.setImageAndContent(UIImage.init(named: "tabBar_messageVc_normal_icon")!, content: "关注")
         buttonItem5.setImageAndContent(UIImage.init(named: "tabBar_aboutMeVc_normal_icon")!, content: "我")
         
@@ -86,7 +86,7 @@ class BSTabBar: UIView {
         }
         buttonItem1.setImageAndContent(UIImage.init(named: "tabBar_timeLineVc_normal_icon")!, content: "精华")
         buttonItem2.setImageAndContent(UIImage.init(named: "tabBar_singhoodVc_normal_icon")!, content: "最新")
-        buttonItem3.setImageAndContent(UIImage.init(named: "tabBar_makeFriendVc_4_5s_normal_icon")!, content: "")
+        buttonItem3.setImageAndContent(UIImage.init(named: "tabBar_makeFriendVc_normal_icon")!, content: "")
         buttonItem4.setImageAndContent(UIImage.init(named: "tabBar_messageVc_normal_icon")!, content: "关注")
         buttonItem5.setImageAndContent(UIImage.init(named: "tabBar_aboutMeVc_normal_icon")!, content: "我")
         
@@ -151,7 +151,6 @@ class BSTabBarButtonItem: UIButton{
         self.imageV.image = image
         self.labelT.text = content as String
         if content.isEqual(to: "") {
-//            self.imageV.frame = CGRect.init(x: (self.bounds.size.width-40)/2, y: (self.bounds.size.height-35)/2, width: 40, height: 35)
             self.imageV.sizeToFit()
             self.imageV.frame = CGRect.init(x: (self.bounds.size.width-self.imageV.bounds.size.width)/2, y: (self.bounds.size.height-self.imageV.bounds.size.height)/2, width: self.imageV.bounds.size.width, height: self.imageV.bounds.size.height)
         }
