@@ -6,6 +6,7 @@
 //  Copyright © 2016年 bruce. All rights reserved.
 //
 
+/// *****Test Part(ignorable)*****❎
 import UIKit
 import Kingfisher
 class BSCheckImageDetailView: UIView,UIImagePickerControllerDelegate ,UINavigationControllerDelegate{
@@ -22,7 +23,6 @@ class BSCheckImageDetailView: UIView,UIImagePickerControllerDelegate ,UINavigati
             self.backgroundColor = BSColor.colorWithHex(0x000000)
             self.addSubViews()
             self.setSubViews()
-//            self.setScrollEnableoTop(enable: true)
             self.alpha = 0.1
             UIView.animate(withDuration: 0.25, animations: {
                 UIApplication.shared.keyWindow?.addSubview(self)
@@ -98,7 +98,7 @@ class BSCheckImageDetailView: UIView,UIImagePickerControllerDelegate ,UINavigati
     
     // MARK: - Response
     func scrollToTop() {
-        print("点击了滚动到顶部")
+        JBLog("点击了滚动到顶部")
         UIView.animate(withDuration: 0.25, animations: { 
             self.coreScrollView.frame.origin = CGPoint.init(x: 0, y: 0)
             }) { (true) in
@@ -118,15 +118,14 @@ class BSCheckImageDetailView: UIView,UIImagePickerControllerDelegate ,UINavigati
         UIImageWriteToSavedPhotosAlbum(self.coreScrollView._zoomImageView.image!, self, #selector(image(image:didFinishSavingWithError:contextInfo:)), nil)// imageSavedToPhotosAlbum:didFinishSavingWithError:contextInfo:
     }
     
-// /Users/xsteach/Desktop/Personal Area/百思不得姐/百思不得姐/Public/View/BSCheckImageDetailView.swift:122:16: Method cannot be marked @objc because the type of the parameter 3 cannot be represented in Objective-C
     func image(image:UIImage,didFinishSavingWithError error:NSError?,contextInfo:AnyObject){
-        print("---")
+        JBLog("---")
         
         if error != nil {
-            print(error)
+            JBLog(error!)
             return
         }
-        print("OK")
+        JBLog("OK")
     }
     func displayImage(image:NSString) {
         
@@ -143,14 +142,8 @@ class BSCheckImageDetailView: UIView,UIImagePickerControllerDelegate ,UINavigati
         }else{
             self.coreScrollView.contentSize = CGSize.init(width: (self.coreScrollView._zoomImageView.image?.size.width)!, height: (self.coreScrollView._zoomImageView.image?.size.height)!)
             self.coreScrollView._zoomImageView.frame = CGRect.init(x: 0, y: 0, width: (self.coreScrollView._zoomImageView.image?.size.width)!, height: (self.coreScrollView._zoomImageView.image?.size.height)!)
-//            self.coreScrollView.contentSize = CGSize.init(width: ScreenWidth, height: (self.coreScrollView._zoomImageView.image?.size.height)!)
-//            self.coreScrollView._zoomImageView.frame = CGRect.init(x: 0, y: 0, width: ScreenWidth, height: (self.coreScrollView._zoomImageView.image?.size.height)!)
         }
- 
-
-        
     }
-    
 }
 
 class BSCoreScrollView : UIScrollView,UIScrollViewDelegate{

@@ -41,15 +41,17 @@ class BSNavgationView: UIView {
     }
     
     //MARK: - 私有方法
-    func setSubViews() {
+    private func setSubViews() {
         titleLabel = UILabel.init(frame: CGRect.init(x: 0, y: (self.bounds.size.height-22)/2, width: ScreenWidth, height: 22))
         titleLabel.textAlignment = NSTextAlignment.center
         titleLabel.font = UIFont.systemFont(ofSize: 18, weight: 1.5)
         titleLabel.textColor = BSColor.themeCharacterColor()
         self.addSubview(titleLabel)
     }
-    
-    //MARK: - 公共调用方法
+}
+
+//MARK: - 公共调用方法
+extension BSNavgationView{
     // 设置左右按钮相关
     func setButtonsPartOf(_ PartArray:NSArray,btnPType:ButtonPositionType) {
         _ = Any.self
@@ -89,6 +91,20 @@ class BSNavgationView: UIView {
             kItemNumber += 1
         }
     }
+}
+
+//MARK: - 设置标题相关
+extension BSNavgationView{
+    func setTitle(_ title:NSString) {
+        self.titleLabel.text = title as String
+    }
+    func setTitleColor(_ color:UIColor) {
+        self.titleLabel.textColor = color
+    }
+}
+
+//MARK: - 点击左右按钮
+extension BSNavgationView{
     // 点击左部按钮
     func EventWithLeftBtns(_ sender:UIButton) {
         delegate?.BSNavgationViewButtonClickedWithLeftSide!(sender)
@@ -98,18 +114,11 @@ class BSNavgationView: UIView {
     func EventWithRightBtns(_ sender:UIButton) {
         delegate?.BSNavgationViewButtonClickedWithRightSide(sender)
     }
-    
-    // 设置标题相关
-    func setTitle(_ title:NSString) {
-        self.titleLabel.text = title as String
-    }
-    func setTitleColor(_ color:UIColor) {
-        self.titleLabel.textColor = color
-    }
-    
-    // 设置本类相关
+}
+
+//MARK: - 设置本类相关(例如颜色)
+extension BSNavgationView {
     func setBGColor(_ bgColor:UIColor) {
         self.backgroundColor = bgColor
     }
-
 }

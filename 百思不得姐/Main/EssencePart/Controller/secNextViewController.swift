@@ -114,7 +114,7 @@ class secNextViewController: BSThemeViewController,UITableViewDelegate,UITableVi
                 self.dealWithResult(JSON: JSON as! NSDictionary)
             }else {
                 let error = (JSON as! NSDictionary).object(forKey: "showapi_res_error") as! NSString
-                print("\(error)")
+                JBLog("\(error)")
             }
         }
     }

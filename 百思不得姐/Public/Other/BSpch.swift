@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 // 实现自己的打印方法
-func HBLog(_ item: Any...) {
+func JBLog(_ item: Any...) {
     #if DEBUG
         
         print("文件:"+"\(URL(fileURLWithPath:#file).lastPathComponent)")
@@ -56,7 +56,7 @@ let KDEVICE_IS_IPHONE6_6S = (UIScreen.main.currentMode?.size)!.equalTo(CGSize.in
 let KDEVICE_IS_IPHONE6_6S_PLUS = (UIScreen.main.currentMode?.size)!.equalTo(CGSize.init(width: 1242, height: 2208))
 
 
-//💖百思appid
+// 百思appid
 let BSAPPID = "25538"
 let BSAPPKEY = "7c85d8989bc642538cac106fb33e8d9b"
 let BSAPPARRESS = "http://route.showapi.com/255-1"

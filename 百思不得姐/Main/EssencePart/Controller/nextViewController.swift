@@ -95,15 +95,6 @@ class nextViewController: BSThemeViewController,UITableViewDelegate,UITableViewD
         let checkVc = BSCheckImageViewController()
         checkVc.imageArray = transiArray
         checkVc.presentedFromThisViewController(VC:self)
-//        self.present(checkVc, animated: false, completion: nil)
-        /*
-        checkVc.view.alpha = 0.1
-        UIView.animate(withDuration: 0.25, animations: { 
-            checkVc.view.alpha = 1
-            }) { (true) in
-                self.present(checkVc, animated: false, completion: nil)
-        }
-        */
     }
 
     
@@ -125,7 +116,7 @@ class nextViewController: BSThemeViewController,UITableViewDelegate,UITableViewD
                 self.dealWithResult(JSON: JSON as! NSDictionary)
             }else {
                 let error = (JSON as! NSDictionary).object(forKey: "showapi_res_error") as! NSString
-                print("\(error)")
+                JBLog("\(error)")
             }
         }
     }

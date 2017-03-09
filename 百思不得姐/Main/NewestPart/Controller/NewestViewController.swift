@@ -91,8 +91,8 @@ class NewestViewController: BSThemeViewController,UIScrollViewDelegate ,UITableV
         
         let tag : NSInteger = sender.tag
 
-        print("_curIndex"+"\(_curIndex)")
-        print("tag:"+"\(tag)")
+        JBLog("_curIndex"+"\(_curIndex)")
+        JBLog("tag:"+"\(tag)")
         
         
         let offSetX = _width*2
@@ -163,7 +163,7 @@ class NewestViewController: BSThemeViewController,UIScrollViewDelegate ,UITableV
             minV.frame = maxF
             //
             _curIndex = self.next(current: _curIndex)
-            print("_curIndex"+"\(_curIndex)")
+            JBLog("_curIndex"+"\(_curIndex)")
             
             
             if !(tableViewArray[_curIndex] as! UITableView).isEqual(placeHolderT){// 已存在对应的TableView对象
@@ -194,7 +194,7 @@ class NewestViewController: BSThemeViewController,UIScrollViewDelegate ,UITableV
                 self.setNilView(view: self.getMinView(contentViews: self.contentViews))
             }
             
-            print("<-")
+            JBLog("<-")
         }else{// 右滑
          
             // 把最左一张移到最右
@@ -207,7 +207,7 @@ class NewestViewController: BSThemeViewController,UIScrollViewDelegate ,UITableV
             maxV.frame = minF
             //
             _curIndex = self.pre(current: _curIndex)
-            print("_curIndex"+"\(_curIndex)")
+            JBLog("_curIndex"+"\(_curIndex)")
             
             if !(tableViewArray[_curIndex] as! UITableView).isEqual(placeHolderT){
                 let contentT = tableViewArray[_curIndex] as! UITableView
@@ -236,7 +236,7 @@ class NewestViewController: BSThemeViewController,UIScrollViewDelegate ,UITableV
             }else{
                 self.setNilView(view: self.getMaxView(contentViews: self.contentViews))
             }
-            print("->")
+            JBLog("->")
         }
         
         mainScrollView.setContentOffset(CGPoint.init(x: _width, y: 0), animated: false)

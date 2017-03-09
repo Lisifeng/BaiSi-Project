@@ -10,19 +10,17 @@ import UIKit
 import JHB_HUDView
 
 class BSCheckImageViewController: UIViewController,UICollectionViewDataSource, UICollectionViewDelegate ,BSCheckImageCollectionViewCellDelegate,BSCheckImageManagerDelegate{
-
+    //MARK: - Parameters
     var imageArray = NSArray()
     var backBtn = UIButton()
     var saveBtn = UIButton()
     var indexlabel = UILabel()
     var transmitBtn = UIButton()
-    
     var currentImage = UIImage()
     var resultImages = NSMutableArray()
     var browserAnimateManager = BSCheckImageManager()
-    
-    
-    
+
+    // //MARK: - Interface
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         if !self.isEqual(nil) {
@@ -37,8 +35,6 @@ class BSCheckImageViewController: UIViewController,UICollectionViewDataSource, U
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
- 
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -120,7 +116,6 @@ class BSCheckImageViewController: UIViewController,UICollectionViewDataSource, U
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BSCheckImageCollectionViewCell", for: indexPath) as! BSCheckImageCollectionViewCell
         cell.delegate = self
         let currentModel = imageArray[indexPath.row] as! BSCheckImageModel
-//        currentImage = cell.displayImage(image: currentModel.transiURL as NSString)
         currentImage = cell.setCheckImageModel(model: currentModel)
         return cell
         
@@ -143,15 +138,15 @@ class BSCheckImageViewController: UIViewController,UICollectionViewDataSource, U
     }
     
     func image(image:UIImage,didFinishSavingWithError error:NSError?,contextInfo:AnyObject){
-        print("---")
+        JBLog("---")
         JHB_HUDView.hideProgressOfDIYType()
         if error != nil {
             JHB_HUDView.showMsg("\(error)" as NSString)
-            print(error!)
+            JBLog(error!)
             return
         }
         JHB_HUDView.showMsg("保存成功😁")
-        print("OK")
+        JBLog("OK")
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

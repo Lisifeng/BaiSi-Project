@@ -8,18 +8,18 @@
 
 import UIKit
 import Kingfisher
-
+//MARK: - Delegate
 protocol BSCheckImageCollectionViewCellDelegate {
     func BSCheckImageCollectionViewCellScrollViewClicked()
 }
-
+/// ---------BSCheckImageCollectionViewCell---------
 class BSCheckImageCollectionViewCell: UICollectionViewCell {
-    
+    //MARK: - Parameters
     var delegate : BSCheckImageCollectionViewCellDelegate?
     var coreScrollView = BSCheckImageCoreScrollView()
     var _kIfDoubleTap = Bool.init()
     
-    
+    //MARK: - Interface
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.addSubViews()
@@ -60,22 +60,27 @@ class BSCheckImageCollectionViewCell: UICollectionViewCell {
         } else {
             self.coreScrollView.zoom(to: CGRect.init(x: touchPoint.x, y: touchPoint.y, width: 1, height: 1), animated: true)
         }
-        
     }
-    
-    //MARK: - 展示图片
+}
+
+//MARK: - 展示图片
+extension BSCheckImageCollectionViewCell{
     func displayImage(image:NSString) -> UIImage {
-        
         self.coreScrollView._zoomImageView.kf.setImage(with:URL(string: image as String), placeholder: UIImage.init(named: "tabBar_aboutMeVc_selected_icon"), options: [.transition(ImageTransition.fade(1.0))], progressBlock: { receivedSize, totalSize in
             /*
-            if receivedSize < totalSize {
-                self.coreScrollView.contentSize = CGSize.init(width: 80, height: 80)
-                self.coreScrollView._zoomImageView.frame = CGRect.init(x: 0, y: 0, width: 80, height: 80)
-            }
-            */
-            },completionHandler: { (image, error,cacheType, imageURL) in
+             if receivedSize < totalSize {
+             self.coreScrollView.contentSize = CGSize.init(width: 80, height: 80)
+             self.coreScrollView._zoomImageView.frame = CGRect.init(x: 0, y: 0, width: 80, height: 80)
+             }
+             */
+        },completionHandler: { (image, error,cacheType, imageURL) in
         })
-
+        self.setImagePosition()
+        return self.coreScrollView._zoomImageView.image!
+    }
+}
+extension BSCheckImageCollectionViewCell{
+    func setImagePosition() {
         let imageSize = self.coreScrollView._zoomImageView.image?.size
         let imageHeight = ScreenWidth * (imageSize?.height)! / (imageSize?.width)!
         
@@ -86,33 +91,25 @@ class BSCheckImageCollectionViewCell: UICollectionViewCell {
             self.coreScrollView.contentSize = CGSize.init(width: ScreenWidth, height: imageHeight)
             self.coreScrollView._zoomImageView.frame = CGRect.init(x: 0, y: 0, width: ScreenWidth, height: imageHeight)
         }
-      
-        return self.coreScrollView._zoomImageView.image!
     }
-
+}
+//MARK: - 设置模型
+extension BSCheckImageCollectionViewCell{
     func setCheckImageModel(model:BSCheckImageModel
         ) -> UIImage {
         if !model.transiImage.isEqual(nil) {
             self.coreScrollView._zoomImageView.image = model.transiImage
-            let imageSize = model.transiImage.size
-            let height = ScreenWidth * imageSize.height / imageSize.width
-            if imageSize.height <= ScreenHeight {
-                self.coreScrollView.contentSize = CGSize.init(width: ScreenWidth, height: height)
-                self.coreScrollView._zoomImageView.frame = CGRect.init(x: 0, y: (ScreenHeight-imageSize.height)/2, width: ScreenWidth, height: height)
-            }else if imageSize.height > ScreenHeight {
-                self.coreScrollView.contentSize = CGSize.init(width: ScreenWidth, height: height)
-                self.coreScrollView._zoomImageView.frame = CGRect.init(x: 0, y: 0, width: ScreenWidth, height: height)
-            }
-            
+            self.setImagePosition()
             return model.transiImage
         }else{
             let resultImage = self.displayImage(image: model.transiURL as NSString)
             return resultImage
         }
-        
     }
-    
 }
+
+
+/// ---------BSCheckImageCoreScrollView---------
 class BSCheckImageCoreScrollView : UIScrollView,UIScrollViewDelegate{
     
     var _zoomImageView = UIImageView()
@@ -134,7 +131,6 @@ class BSCheckImageCoreScrollView : UIScrollView,UIScrollViewDelegate{
         _zoomImageView.isUserInteractionEnabled = true;
         self.addSubview(_zoomImageView)
     }
-    
     
     //MARK: - UIScrollViewDelegate
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
@@ -163,6 +159,4 @@ class BSCheckImageCoreScrollView : UIScrollView,UIScrollViewDelegate{
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    
 }

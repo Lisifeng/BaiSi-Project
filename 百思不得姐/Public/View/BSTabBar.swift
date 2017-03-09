@@ -8,11 +8,12 @@
 
 import UIKit
 
-protocol  BSTabBarDelegate {
+// MARK: - Delegate
+protocol BSTabBarDelegate {
     func TabBarItemClicked(_ Tag:NSInteger)
 }
 class BSTabBar: UIView {
-  // MARK: - Parameters
+    // MARK: - Parameters
     var delegate : BSTabBarDelegate?
     var kNum : CGFloat = 5
     var buttonItem1 = BSTabBarButtonItem.init()
@@ -20,7 +21,7 @@ class BSTabBar: UIView {
     var buttonItem3 = BSTabBarButtonItem.init()
     var buttonItem4 = BSTabBarButtonItem.init()
     var buttonItem5 = BSTabBarButtonItem.init()
- // MARK: - Interface
+    // MARK: - Interface
     override init(frame: CGRect) {
         super.init(frame: frame)
         if !self.isEqual(nil) {
@@ -112,9 +113,9 @@ class BSTabBar: UIView {
 
         delegate?.TabBarItemClicked(buttonItem.tag)
     }
-    
-    
 }
+
+/// ----------BSTabBarButtonItem----------
 class BSTabBarButtonItem: UIButton{
     // MARK: - Parameters
     var kPercent : CGFloat = 0.65

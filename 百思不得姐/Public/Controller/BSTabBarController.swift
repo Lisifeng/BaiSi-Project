@@ -50,25 +50,6 @@ class BSTabBarController: UITabBarController,BSTabBarDelegate{
         // Dispose of any resources that can be recreated.
     }
     
-    
-    //MARK: - 添加子控制器
-    func setupAllChildController() {
-        let nav1 = BSPublicNavController.init(rootViewController: essenceVc)
-        self.addChildViewController(nav1)
-        
-        let nav2 = BSPublicNavController.init(rootViewController: newestVc)
-        self.addChildViewController(nav2)
-        
-//        let nav3 = BSPublicNavController.init(rootViewController: releaseVc)
-//        self.addChildViewController(nav3)
-        
-        let nav4 = BSPublicNavController.init(rootViewController: concernVc)
-        self.addChildViewController(nav4)
-        
-        let nav5 = BSPublicNavController.init(rootViewController: meVc)
-        self.addChildViewController(nav5)
-        
-    }
     //MARK: - 自定义tabBar
     func setupCustomTabBar() {
         
@@ -79,7 +60,37 @@ class BSTabBarController: UITabBarController,BSTabBarDelegate{
         self.tabBar.addSubview(self.customTabBar)
     }
     
-    //MARK: - BSTabBarDelegate
+    
+    func TabBarHeight() -> CGFloat {
+        return self.customTabBar.bounds.size.height
+    }
+    
+   
+}
+
+//MARK: - 添加子控制器
+extension BSTabBarController{
+    func setupAllChildController() {
+        let nav1 = BSPublicNavController.init(rootViewController: essenceVc)
+        self.addChildViewController(nav1)
+        
+        let nav2 = BSPublicNavController.init(rootViewController: newestVc)
+        self.addChildViewController(nav2)
+        
+        //        let nav3 = BSPublicNavController.init(rootViewController: releaseVc)
+        //        self.addChildViewController(nav3)
+        
+        let nav4 = BSPublicNavController.init(rootViewController: concernVc)
+        self.addChildViewController(nav4)
+        
+        let nav5 = BSPublicNavController.init(rootViewController: meVc)
+        self.addChildViewController(nav5)
+        
+    }
+}
+
+//MARK: - BSTabBarDelegate
+extension BSTabBarController{
     func TabBarItemClicked(_ Tag:NSInteger){
         switch Tag {
         case 1:
@@ -92,7 +103,7 @@ class BSTabBarController: UITabBarController,BSTabBarDelegate{
             // 弹出瀑布流选项控制器
             let releaseVc = BSReleaseItemsView.init(frame: CGRect.zero)
             releaseVc.showIn()
-            print("弹出瀑布流选项控制器✅")
+            JBLog("弹出瀑布流选项控制器✅")
             break
         case 4:
             self.selectedIndex = Tag-2
@@ -102,13 +113,9 @@ class BSTabBarController: UITabBarController,BSTabBarDelegate{
             break
             
         default:
-            print("❌超出范围")
+            JBLog("(错误)超出范围!")
             break
             
         }
-            }
-
-    func TabBarHeight() -> CGFloat {
-        return self.customTabBar.bounds.size.height
     }
 }

@@ -29,9 +29,11 @@ extension NSURL {
      */
     func imgUrlWithUrlAndSize(url:URL,size:CGSize) -> URL {
         var urlString = url.absoluteString
+        /*
         if (urlString != nil) || (urlString.isEmpty) || !(urlString.contains("http")) {
             
         }
+         */
         
         let customSuffix = "imageView2/1/w/"+"\(size.width)"+"/h/"+"\(size.height)"
         urlString = urlString.appending(customSuffix)

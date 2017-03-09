@@ -13,7 +13,7 @@ class BSHomePageViewController: BSThemeViewController,UITableViewDelegate,UITabl
     var mainTableView = UITableView()
     var headerView = HeaderView()
     
-    
+    //MARk: - Interface
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title("小蘑菇")
@@ -42,13 +42,22 @@ class BSHomePageViewController: BSThemeViewController,UITableViewDelegate,UITabl
         self.view.addSubview(mainTableView)
     }
     
-    //MARK: - UITableViewDelegate
+    
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+}
+
+//MARK: - UITableViewDataSource
+extension BSHomePageViewController {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         return 15
     }
     
@@ -62,38 +71,32 @@ class BSHomePageViewController: BSThemeViewController,UITableViewDelegate,UITabl
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
-        
         return 50
-        
     }
-    
-    //MARK: - UIScrollViewDelegate
+}
+
+//MARK: - UIScrollViewDelegate
+extension BSHomePageViewController {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
-        print("💗"+"\(scrollView.contentOffset)")
+        JBLog("💗"+"\(scrollView.contentOffset)")
         let offset = scrollView.contentOffset.y
         self.bsNavigationBar.backgroundColor = ((offset>0) ? BSColor.themeColor() : UIColor.clear)
         self.statusBGView.backgroundColor = ((offset>0) ? BSColor.themeColor() : UIColor.clear)
         self.headerView.setFirFrameWith(ScrollV:scrollView)
     }
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
 }
 
+/// -------HeaderView-------
 class HeaderView: UIView {
     
     let _iconHeightAndWidth = 50
-    
     var bgImageView = UIImageView()
     var iconImageView = UIImageView()
     var contentView = UIView()
     
     
-    //MARK: - Interface
+    /// Interface
     override init(frame: CGRect) {
         super.init(frame: frame)
         if !self.isEqual(nil) {
@@ -141,5 +144,5 @@ class HeaderView: UIView {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
 }

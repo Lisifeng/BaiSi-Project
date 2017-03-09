@@ -12,21 +12,19 @@ import Alamofire
 import JHB_HUDView
 
 class EssenceViewController: BSThemeViewController , UIScrollViewDelegate , UITableViewDelegate , UITableViewDataSource,BSPictueViewCellDelegate{
-    //MARK: - 参数
+    
+    //MARK: - Parameters
     var mainScrollView = UIScrollView()
     var viewNumber : NSInteger = 0
     var topicsArray = NSArray()
     var tableViewArray = NSMutableArray()
-    
     var contentViews = NSMutableArray()
     var _curPoint = CGPoint()
     var _curIndex = 0
     var _width : CGFloat = 0.0
     let placeHolderT = UITableView()
-    
     var _currentPictruePage = 0
     var _currentVideoPage = 0
-    
     var pictureMuArr = NSMutableArray()
     var videoMuArr = NSMutableArray()
     
@@ -42,8 +40,8 @@ class EssenceViewController: BSThemeViewController , UIScrollViewDelegate , UITa
         self.setUpSubViews()
         self.setFirstView()
     }
+    /// 创建并设置子控件
     func setUpSubViews() {
-        
         mainScrollView = UIScrollView.init(frame: CGRect.init(x: 0, y:topListView.frame.maxY , width: ScreenWidth, height: ScreenHeight-BSNavHeight-BSTabBarHeight))// BSNavHeight
         mainScrollView.contentSize = CGSize.init(width:3.0 * mainScrollView.bounds.size.width, height: mainScrollView.bounds.size.height)
         _width = mainScrollView.bounds.size.width
@@ -66,7 +64,7 @@ class EssenceViewController: BSThemeViewController , UIScrollViewDelegate , UITa
             contentViews.add(contentView)
         }
     }
-    
+    /// 设置第一视图
     func setFirstView() {
         for _ in 0...(viewNumber-1) {
             tableViewArray.add(placeHolderT)
@@ -77,56 +75,14 @@ class EssenceViewController: BSThemeViewController , UIScrollViewDelegate , UITa
         mainScrollView.setContentOffset(CGPoint.init(x: mainScrollView.bounds.size.width, y: 0), animated: false)
         
     }
-    func SetUpTableV(index:NSInteger,primeV:UIView) -> UITableView{
-        let contentTableV = UITableView.init(frame: CGRect.init(x: 0, y: 0, width: primeV.bounds.size.width, height: primeV.bounds.size.height))
-        contentTableV.delegate = self
-        contentTableV.dataSource = self
-        contentTableV.tag = index
-
-        
-        // 顶部刷新
-        let header = MJRefreshNormalHeader()
-        // 底部刷新
-        let footer = MJRefreshAutoNormalFooter()
-        // 下拉刷新
-        header.setRefreshingTarget(self, refreshingAction: #selector(EssenceViewController.headerRefresh(page:)))
-        // 上拉刷新
-        footer.setRefreshingTarget(self, refreshingAction: #selector(EssenceViewController.footerRefresh(page:)))
- 
-        
-        contentTableV.mj_header = header
-        contentTableV.mj_footer = footer
-        
-        if index == 0 {
-            contentTableV.isHidden = true
-            contentTableV.register(BSPictueViewCell.self, forCellReuseIdentifier: "BSPictueViewCell")
-            
-        }else if index == 1{
-            contentTableV.isHidden = true
-            contentTableV.register(BSPictueViewCell.self, forCellReuseIdentifier: "BSVideoViewCell")
-        }else{
-            contentTableV.register(UITableViewCell.self, forCellReuseIdentifier: "Essence"+"\(index)")
-        }
-       
-        tableViewArray.replaceObject(at: contentTableV.tag, with: contentTableV)
-        
-        if index == 1 {
-            if self.videoMuArr.count <= 0 {
-//                self.getVideoNetWorksWithPage(page: 1)
-//                contentTableV.mj_header.beginRefreshing()
-            }
-        }
-        contentTableV.mj_header.beginRefreshing()
-        return contentTableV
-    }
+    
     
     //MARK: - BSTopListViewTopicDelegate
     override func BSTopListViewTopicBtnClicked(_ sender:UIButton){
         
         let tag : NSInteger = sender.tag
-        
-        print("_curIndex"+"\(_curIndex)")
-        print("tag:"+"\(tag)")
+        JBLog("_curIndex"+"\(_curIndex)")
+        JBLog("tag:"+"\(tag)")
         
         var offSetX : CGFloat = 0.0
         if tag > _curIndex {// 右移
@@ -145,11 +101,160 @@ class EssenceViewController: BSThemeViewController , UIScrollViewDelegate , UITa
         }
     }
     
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+
+}
+
+//MARK: - About Detail Responses
+extension EssenceViewController {
+    /// 下一页
+    func next(current:NSInteger) -> NSInteger {
+        return (current+1) % viewNumber //队列指针+1
+    }
+    /// 上一页
+    func pre(current:NSInteger) -> NSInteger {
+        return (current-1+viewNumber) % viewNumber // 队列指针-1
+    }
+    /// 获取最小的视图
+    func getMinView(contentViews:NSMutableArray) -> UIView {
+        var minView = UIView()
+        var minF = CGFloat.greatestFiniteMagnitude
+        for contenV in contentViews {
+            let curX = (contenV as! UIView).frame.origin.x
+            
+            if (curX) < minF {
+                minF = (curX)
+                minView = contenV as! UIView
+            }
+        }
+        return minView
+    }
+    /// 获取最大的试图
+    func getMaxView(contentViews:NSMutableArray) -> UIView {
+        var maxView = UIView()
+        var maxF = CGFloat.leastNormalMagnitude
+        for contenV in contentViews {
+            let curX = (contenV as! UIView).frame.origin.x
+            
+            if (curX) > maxF {
+                maxF = (curX)
+                maxView = contenV as! UIView
+            }
+        }
+        return maxView
+    }
+    /// 滞空View容器
+    func setNilView(view:UIView) {
+        let subVs = view.subviews
+        _ = UIView()
+        for contentV in subVs {
+            contentV.removeFromSuperview()
+        }
+    }
+    /// 头部刷新
+    func headerRefresh(page:NSInteger) {
+        switch _curIndex {
+        case 0:
+            self.getPictureNetWorksWithPage(page: 1)
+            break
+        case 1:
+            self.getVideoNetWorksWithPage(page: 1)
+            break
+        default:
+            self.oepration()
+            break
+        }
+    }
+    /// 底部刷新
+    func footerRefresh(page:NSInteger) {
+        switch _curIndex {
+        case 0:
+            self.getPictureNetWorksWithPage(page: 1+_currentPictruePage)
+            break
+        case 1:
+            self.getVideoNetWorksWithPage(page: 1+_currentVideoPage)
+            break
+        default:
+            self.oepration()
+            break
+        }
+    }
+    /// 延时操作
+    func oepration() {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.65) {
+            JBLog("延时提交的任务")
+            (self.tableViewArray[self._curIndex] as! UITableView).mj_header.endRefreshing()
+            (self.tableViewArray[self._curIndex] as! UITableView).mj_footer.endRefreshing()
+            JHB_HUDView.showMsg("假装刷新了数据")
+        }
+    }
+}
+
+//MARK: - BSPictueViewCellDelegate
+extension EssenceViewController {
+    func BSPictueViewCellShowImageViewClicked(cell:BSPictueViewCell){
+        if _curIndex == 0 {
+            let transiArray = NSMutableArray()
+            let checkImageModel = BSCheckImageModel()
+            checkImageModel.transiURL = (cell.currentModel?.image0)!
+            checkImageModel.transiImageView = cell.showImageView
+            checkImageModel.transiImage = cell.showImageView.image!
+            transiArray.add(checkImageModel)
+            let checkVc = BSCheckImageViewController()
+            checkVc.imageArray = transiArray
+            checkVc.presentedFromThisViewController(VC:self)
+        }else if _curIndex == 1 {
+            let checkVideoVc = BSCheckVideoController()
+            checkVideoVc.setPlayerViewWithUrl(url: (cell.currentModel?.video_uri)! as NSString)
+            self.present(checkVideoVc, animated: false, completion: nil)
+        }
+    }
+}
+
+//MARK: - About TableView
+extension EssenceViewController {
+    /// SetUpTableV
+    func SetUpTableV(index:NSInteger,primeV:UIView) -> UITableView{
+        let contentTableV = UITableView.init(frame: CGRect.init(x: 0, y: 0, width: primeV.bounds.size.width, height: primeV.bounds.size.height))
+        contentTableV.delegate = self
+        contentTableV.dataSource = self
+        contentTableV.tag = index
+        
+        // 顶部刷新
+        let header = MJRefreshNormalHeader()
+        // 底部刷新
+        let footer = MJRefreshAutoNormalFooter()
+        // 下拉刷新
+        header.setRefreshingTarget(self, refreshingAction: #selector(EssenceViewController.headerRefresh(page:)))
+        // 上拉刷新
+        footer.setRefreshingTarget(self, refreshingAction: #selector(EssenceViewController.footerRefresh(page:)))
+        contentTableV.mj_header = header
+        contentTableV.mj_footer = footer
+        
+        if index == 0 {
+            contentTableV.isHidden = true
+            contentTableV.register(BSPictueViewCell.self, forCellReuseIdentifier: "BSPictueViewCell")
+            
+        }else if index == 1{
+            contentTableV.isHidden = true
+            contentTableV.register(BSPictueViewCell.self, forCellReuseIdentifier: "BSVideoViewCell")
+        }else{
+            contentTableV.register(UITableViewCell.self, forCellReuseIdentifier: "Essence"+"\(index)")
+        }
+        
+        tableViewArray.replaceObject(at: contentTableV.tag, with: contentTableV)
+        contentTableV.mj_header.beginRefreshing()
+        return contentTableV
+    }
     
     //MARK: - UITableViewDataSource
     public func numberOfSections(in tableView: UITableView) -> Int{
         return 1
     }
+    
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         if tableView.tag == 0 {
             return self.pictureMuArr.count
@@ -158,6 +263,7 @@ class EssenceViewController: BSThemeViewController , UIScrollViewDelegate , UITa
         }
         return 15
     }
+    
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         if tableView.tag == 0 {
             var cell = tableView.dequeueReusableCell(withIdentifier: "BSPictueViewCell") as! BSPictueViewCell
@@ -207,11 +313,12 @@ class EssenceViewController: BSThemeViewController , UIScrollViewDelegate , UITa
                 self.navigationController?.pushViewController(nextVc, animated: true)
             }
         }
-        
     }
-    
-    
-    //MARK: - UIScrollViewDelegate
+}
+
+//MARK: - About UIScrollViewDelegate
+extension EssenceViewController {
+    /// 正在滚动
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
         if scrollView.tag != 2000{
@@ -221,7 +328,7 @@ class EssenceViewController: BSThemeViewController , UIScrollViewDelegate , UITa
         self.topListView.topicClickedWithTAG(_curIndex)
         
     }
-    
+    /// 停止滚动
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         if scrollView.tag != 2000{
             return
@@ -241,7 +348,7 @@ class EssenceViewController: BSThemeViewController , UIScrollViewDelegate , UITa
             minV.frame = maxF
             //
             _curIndex = self.next(current: _curIndex)
-            print("_curIndex"+"\(_curIndex)")
+            JBLog("_curIndex"+"\(_curIndex)")
             
             
             if !(tableViewArray[_curIndex] as! UITableView).isEqual(placeHolderT){// 已存在对应的TableView对象
@@ -272,7 +379,7 @@ class EssenceViewController: BSThemeViewController , UIScrollViewDelegate , UITa
                 self.setNilView(view: self.getMinView(contentViews: self.contentViews))
             }
             
-            print("<-")
+            JBLog("<-")
         }else{// 右滑
             
             // 把最左一张移到最右
@@ -285,7 +392,7 @@ class EssenceViewController: BSThemeViewController , UIScrollViewDelegate , UITa
             maxV.frame = minF
             //
             _curIndex = self.pre(current: _curIndex)
-            print("_curIndex"+"\(_curIndex)")
+            JBLog("_curIndex"+"\(_curIndex)")
             
             if !(tableViewArray[_curIndex] as! UITableView).isEqual(placeHolderT){
                 let contentT = tableViewArray[_curIndex] as! UITableView
@@ -314,145 +421,18 @@ class EssenceViewController: BSThemeViewController , UIScrollViewDelegate , UITa
             }else{
                 self.setNilView(view: self.getMaxView(contentViews: self.contentViews))
             }
-            print("->")
+            JBLog("->")
         }
         
         mainScrollView.setContentOffset(CGPoint.init(x: _width, y: 0), animated: false)
         _curPoint.x = mainScrollView.contentOffset.x;
         
     }
-    
-    
-    
-    public func scrollViewWillBeginDragging(_ scrollView: UIScrollView){
-        
-    }
-    
-    
-    //MARK: - Response
-    func next(current:NSInteger) -> NSInteger {
-        return (current+1) % viewNumber //队列指针+1
-    }
-    func pre(current:NSInteger) -> NSInteger {
-        return (current-1+viewNumber) % viewNumber // 队列指针-1
-    }
-    
-    func getMinView(contentViews:NSMutableArray) -> UIView {
-        
-        var minView = UIView()
-        var minF = CGFloat.greatestFiniteMagnitude
-        for contenV in contentViews {
-            let curX = (contenV as! UIView).frame.origin.x
-            
-            if (curX) < minF {
-                minF = (curX)
-                minView = contenV as! UIView
-            }
-        }
-        
-        return minView
-    }
-    
-    func getMaxView(contentViews:NSMutableArray) -> UIView {
-        
-        var maxView = UIView()
-        var maxF = CGFloat.leastNormalMagnitude
-        for contenV in contentViews {
-            let curX = (contenV as! UIView).frame.origin.x
-            
-            if (curX) > maxF {
-                maxF = (curX)
-                maxView = contenV as! UIView
-            }
-        }
-        
-        return maxView
-    }
-    
-    // 滞空View容器
-    func setNilView(view:UIView) {
-        let subVs = view.subviews
-        _ = UIView()
-        for contentV in subVs {
-            contentV.removeFromSuperview()
-        }
-    }
-    
-    func headerRefresh(page:NSInteger) {
-        switch _curIndex {
-        case 0:
-            self.getPictureNetWorksWithPage(page: 1)
-            break
-        case 1:
-            self.getVideoNetWorksWithPage(page: 1)
-            break
-        default:
-            self.oepration()
-            break
-        }
-    }
-    func footerRefresh(page:NSInteger) {
-        switch _curIndex {
-        case 0:
-            self.getPictureNetWorksWithPage(page: 1+_currentPictruePage)
-            break
-        case 1:
-            self.getVideoNetWorksWithPage(page: 1+_currentVideoPage)
-            break
-        default:
-            self.oepration()
-            break
-        }
-    }
+}
 
-    func oepration() {
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.65) {
-            print("延时提交的任务")
-            (self.tableViewArray[self._curIndex] as! UITableView).mj_header.endRefreshing()
-            (self.tableViewArray[self._curIndex] as! UITableView).mj_footer.endRefreshing()
-            JHB_HUDView.showMsg("假装刷新了数据")
-        }
-    }
-    //MARK: - NetWork
-    func getPictureNetWorksWithPage(page:NSInteger)  {
-        JHB_HUDView.showProgressWithType(HUDType.kHUDTypeShowSlightly)
-        _currentPictruePage = page
-        let CurrentPage = "\(_currentPictruePage)"
-        let params = ["showapi_appid":BSAPPID,"showapi_sign":BSAPPKEY,"type":"10","page":CurrentPage]
-        
-        Alamofire.request(BSAPPARRESS, method: .get,parameters: params).responseJSON { (response) in
-            guard let JSON = response.result.value else { return }
-            let codeValue = (JSON as! NSDictionary).object(forKey: "showapi_res_code") as! NSInteger
-            (self.tableViewArray[0] as! UITableView).mj_header.endRefreshing()
-            (self.tableViewArray[0] as! UITableView).mj_footer.endRefreshing()
-            JHB_HUDView.hideProgress()
-            if codeValue == 0{
-                self.dealPictrueWithResult(JSON: JSON as! NSDictionary)
-            }else {
-                let error = (JSON as! NSDictionary).object(forKey: "showapi_res_error") as! NSString
-                print("\(error)")
-            }
-        }
-    }
-    
-    func dealPictrueWithResult(JSON:NSDictionary) {
-        let showapi_res_bodyDic = JSON.object(forKey: "showapi_res_body")
-        let pagebean = (showapi_res_bodyDic as! NSDictionary).object(forKey: "pagebean")
-        let contentlist = (pagebean as! NSDictionary).object(forKey: "contentlist") as! NSArray
-        
-        if self._currentPictruePage == 1{
-            self.pictureMuArr.removeAllObjects()
-        }
-        _ = NSDictionary()
-        for contentDic in contentlist{
-             let contentM = BSContentModel(dict: (contentDic as! NSDictionary) as! [String : Any] as! [String : NSObject])
-            self.pictureMuArr.add(contentM)
-        }
-        (self.tableViewArray[0] as! UITableView).isHidden = false
-        (self.tableViewArray[0] as! UITableView).reloadData()
-    }
-
-    //MARK: - NetWork
+//MARK: - About NetWork
+extension EssenceViewController {
+    /// About Video
     func getVideoNetWorksWithPage(page:NSInteger)  {
         JHB_HUDView.showProgressWithType(HUDType.kHUDTypeShowSlightly)
         _currentVideoPage = page
@@ -469,7 +449,7 @@ class EssenceViewController: BSThemeViewController , UIScrollViewDelegate , UITa
                 self.dealVideoWithResult(JSON: JSON as! NSDictionary)
             }else {
                 let error = (JSON as! NSDictionary).object(forKey: "showapi_res_error") as! NSString
-                print("\(error)")
+                JBLog("\(error)")
             }
         }
     }
@@ -490,35 +470,44 @@ class EssenceViewController: BSThemeViewController , UIScrollViewDelegate , UITa
         (self.tableViewArray[1] as! UITableView).isHidden = false
         (self.tableViewArray[1] as! UITableView).reloadData()
     }
-
     
     
-    //MARK: - BSPictueViewCellDelegate
-    func BSPictueViewCellShowImageViewClicked(cell:BSPictueViewCell){
-        if _curIndex == 0 {
-            let transiArray = NSMutableArray()
-            let checkImageModel = BSCheckImageModel()
-            checkImageModel.transiURL = (cell.currentModel?.image0)!
-            checkImageModel.transiImageView = cell.showImageView
-            checkImageModel.transiImage = cell.showImageView.image!
-            
-            transiArray.add(checkImageModel)
-            
-            let checkVc = BSCheckImageViewController()
-            checkVc.imageArray = transiArray
-            checkVc.presentedFromThisViewController(VC:self)
-        }else if _curIndex == 1 {
-            let checkVideoVc = BSCheckVideoController()
-            checkVideoVc.setPlayerViewWithUrl(url: (cell.currentModel?.video_uri)! as NSString)
-            self.present(checkVideoVc, animated: false, completion: nil)
-        }
+    ///  About Picture
+    func getPictureNetWorksWithPage(page:NSInteger)  {
+        JHB_HUDView.showProgressWithType(HUDType.kHUDTypeShowSlightly)
+        _currentPictruePage = page
+        let CurrentPage = "\(_currentPictruePage)"
+        let params = ["showapi_appid":BSAPPID,"showapi_sign":BSAPPKEY,"type":"10","page":CurrentPage]
         
+        Alamofire.request(BSAPPARRESS, method: .get,parameters: params).responseJSON { (response) in
+            guard let JSON = response.result.value else { return }
+            let codeValue = (JSON as! NSDictionary).object(forKey: "showapi_res_code") as! NSInteger
+            (self.tableViewArray[0] as! UITableView).mj_header.endRefreshing()
+            (self.tableViewArray[0] as! UITableView).mj_footer.endRefreshing()
+            JHB_HUDView.hideProgress()
+            if codeValue == 0{
+                self.dealPictrueWithResult(JSON: JSON as! NSDictionary)
+            }else {
+                let error = (JSON as! NSDictionary).object(forKey: "showapi_res_error") as! NSString
+                JBLog("\(error)")
+            }
+        }
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func dealPictrueWithResult(JSON:NSDictionary) {
+        let showapi_res_bodyDic = JSON.object(forKey: "showapi_res_body")
+        let pagebean = (showapi_res_bodyDic as! NSDictionary).object(forKey: "pagebean")
+        let contentlist = (pagebean as! NSDictionary).object(forKey: "contentlist") as! NSArray
+        
+        if self._currentPictruePage == 1{
+            self.pictureMuArr.removeAllObjects()
+        }
+        _ = NSDictionary()
+        for contentDic in contentlist{
+            let contentM = BSContentModel(dict: (contentDic as! NSDictionary) as! [String : Any] as! [String : NSObject])
+            self.pictureMuArr.add(contentM)
+        }
+        (self.tableViewArray[0] as! UITableView).isHidden = false
+        (self.tableViewArray[0] as! UITableView).reloadData()
     }
-
 }
-

@@ -57,33 +57,7 @@ class BSThemeViewController: UIViewController,BSNavgationViewButtonClickedDelega
         self.view.addSubview(topListView)
     }
     
-    // 设置标题
-    func title(_ title:NSString) {
-        bsNavigationBar.setTitle(title)
-    }
-
-    // 设置返回按钮
-    func back(_ backTitle:NSString) {
-        if backTitle == "" {
-            let backBtn = UIButton.init(type: UIButtonType.custom)
-            backBtn.setImage(UIImage.init(named: "back_image"), for: UIControlState.normal)
-            backBtn.addTarget(self, action: #selector(BSThemeViewController.backToBefore), for: UIControlEvents.touchUpInside)
-            backBtn.sizeToFit()
-            backBtn.frame = CGRect.init(x: 15, y: (self.bsNavigationBar.bounds.size.height-backBtn.bounds.size.height)/2, width: backBtn.bounds.size.width, height: backBtn.bounds.size.height)
-            self.bsNavigationBar.addSubview(backBtn)
-        }
-    }
-    func backToBefore() {
-        self.navigationController!.popViewController(animated: true)
-    }
-    // 设置左右诸按钮
-    func leftBtns(_ btns:NSArray) {
-        bsNavigationBar.setButtonsPartOf(btns, btnPType: ButtonPositionType.kButtonPositionTypeLeft)
-    }
     
-    func rightBtns(_ btns:NSArray) {
-        bsNavigationBar.setButtonsPartOf(btns, btnPType: ButtonPositionType.kButtonPositionTypeRight)
-    }
     
     //MARK - BSNavgationViewButtonClickedDelegate
     // ←
@@ -97,7 +71,42 @@ class BSThemeViewController: UIViewController,BSNavgationViewButtonClickedDelega
     
     //#MARK - BSTopListViewTopicDelegate
     func BSTopListViewTopicBtnClicked(_ sender:UIButton){
-        
+        JBLog("")
+    }
+}
+
+//MARK: - 设置标题与返回
+extension BSThemeViewController{
+    
+    // 设置标题
+    func title(_ title:NSString) {
+        bsNavigationBar.setTitle(title)
+    }
+    
+    // 设置返回按钮
+    func back(_ backTitle:NSString) {
+        if backTitle == "" {
+            let backBtn = UIButton.init(type: UIButtonType.custom)
+            backBtn.setImage(UIImage.init(named: "back_image"), for: UIControlState.normal)
+            backBtn.addTarget(self, action: #selector(BSThemeViewController.backToBefore), for: UIControlEvents.touchUpInside)
+            backBtn.sizeToFit()
+            backBtn.frame = CGRect.init(x: 15, y: (self.bsNavigationBar.bounds.size.height-backBtn.bounds.size.height)/2, width: backBtn.bounds.size.width, height: backBtn.bounds.size.height)
+            self.bsNavigationBar.addSubview(backBtn)
+        }
     }
 
+    func backToBefore() {
+        self.navigationController!.popViewController(animated: true)
+    }
+}
+
+//MARK: - 设置左右诸按钮
+extension BSThemeViewController{
+    func leftBtns(_ btns:NSArray) {
+        bsNavigationBar.setButtonsPartOf(btns, btnPType: ButtonPositionType.kButtonPositionTypeLeft)
+    }
+    
+    func rightBtns(_ btns:NSArray) {
+        bsNavigationBar.setButtonsPartOf(btns, btnPType: ButtonPositionType.kButtonPositionTypeRight)
+    }
 }

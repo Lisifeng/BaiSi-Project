@@ -7,7 +7,7 @@
 //
 
 import UIKit
-//MARK: - BSTopListViewTopicDelegate
+//MARK: - Delegate
 protocol BSTopListViewTopicDelegate {
     func BSTopListViewTopicBtnClicked(_ sender:UIButton)
 }
@@ -54,13 +54,14 @@ class BSTopListView: UIView,UIScrollViewDelegate {
         rightOpaqueView = UIView.init(frame: CGRect.init(x: F.size.width-5, y: 0, width: 5, height: F.size.height))
         rightOpaqueView.backgroundColor = BSColor.colorWithHexAlpha(0xFF1860,alpha: 0.3)
         
-        
         self.addSubview(mainScrollView)
         self.addSubview(leftOpaqueView)
         self.addSubview(rightOpaqueView)
     }
-    
-    //MARK: - 顶部标签数组
+}
+
+//MARK: - 顶部标签数组
+extension BSTopListView{
     func topicsArray(_ topics:NSArray) {
         
         _ = Any.self
@@ -91,8 +92,10 @@ class BSTopListView: UIView,UIScrollViewDelegate {
         
         self.mainScrollView.addSubview(bottomLineView)
     }
-    
-    //MARK: - 顶部标签按钮吧点击方法
+}
+
+//MARK: - 顶部标签按钮点击方法
+extension BSTopListView{
     func topicButtonClicked(_ sender:UIButton) {
         self.topicClickedWithTAG(sender.tag)
         delegate?.BSTopListViewTopicBtnClicked(sender)
@@ -115,13 +118,12 @@ class BSTopListView: UIView,UIScrollViewDelegate {
         let scrollContentLength : CGFloat =  self.mainScrollView.contentSize.width
         let senderCenter = sender.frame.minX + (sender.bounds.size.width) / 2
         
-        print("\(senderCenter/(scrollLength/2))"+"💖💖💖💖")
+        JBLog("\(senderCenter/(scrollLength/2))"+"💖💖💖💖")
         if (senderCenter >= (scrollLength/2.0)) && (senderCenter <= (scrollContentLength - scrollLength/2.0)) {
             UIView.animate(withDuration: 0.35) {
                 self.mainScrollView.contentOffset = CGPoint.init(x: senderCenter-(scrollLength/2), y: 0)
             }
         }else {
-            
             UIView.animate(withDuration: 0.35) {
                 if senderCenter < (scrollLength / 2) {
                     self.mainScrollView.contentOffset = CGPoint.init(x: 0, y: 0)
@@ -131,6 +133,4 @@ class BSTopListView: UIView,UIScrollViewDelegate {
             }
         }
     }
-    
-    
 }

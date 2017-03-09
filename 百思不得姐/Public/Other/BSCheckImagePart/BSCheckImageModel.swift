@@ -10,10 +10,9 @@ import UIKit
 
 class BSCheckImageModel: NSObject {
     
+    //MARK: - parmeters
     var transiImageView = UIImageView()
     var transiURL = String()
     var transiImage = UIImage()
-    
-    
     
 }

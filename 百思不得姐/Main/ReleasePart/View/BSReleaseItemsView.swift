@@ -11,12 +11,10 @@ import pop
 import Foundation
 
 class BSReleaseItemsView: UIView {
-    
+    //MARK: - Parameters
     var popBtnArr = NSMutableArray()
     var timer = Timer()
     var index = 0
-    
-    
     
     //MARK: - Interface
     override init(frame: CGRect) {
@@ -27,6 +25,14 @@ class BSReleaseItemsView: UIView {
             timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(popBtns), userInfo: nil, repeats: true)
         }
     }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
+
+//MARK: - addSubViews
+extension BSReleaseItemsView {
     func addSubViewsWithF(frame:CGRect) {
         
         let topBtn = ItemButton.init()
@@ -77,23 +83,26 @@ class BSReleaseItemsView: UIView {
         self.addSubview(cancelBtn)
         index = popBtnArr.count
     }
-    
+}
+
+extension BSReleaseItemsView {
+    /// 出现
     func showIn() {
         UIApplication.shared.keyWindow?.addSubview(self)
     }
     
-    // 选项按钮点击
+    /// 选项按钮点击
     func itemBtnClicked(btn:ItemButton) {
-        print("\(btn.tag)"+"\(btn.titleL.text)")
+        JBLog("\(btn.tag)"+"\(btn.titleL.text)")
     }
     
-    // 取消按钮点击
+    /// 取消按钮点击
     func cancelBtnClicked(btn:UIButton) {
         timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(BSReleaseItemsView.drownBtn), userInfo: nil, repeats: true)
-        print("点击取消")
+        JBLog("点击取消")
     }
     
-    // 出现
+    /// 出现
     func popBtns() {
         if index <= 0{
             timer.invalidate()
@@ -106,14 +115,14 @@ class BSReleaseItemsView: UIView {
     }
     
     func setUpPopBtn(btn:ItemButton) {
-        UIView.animate(withDuration: 0.8, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0, options: UIViewAnimationOptions.curveEaseIn, animations: { 
-                btn.transform = CGAffineTransform.identity
-            }) { (true) in
-                let removeges = UITapGestureRecognizer.init(target: self, action: #selector(BSReleaseItemsView.cancelBtnClicked(btn:)))
-                self.addGestureRecognizer(removeges)
+        UIView.animate(withDuration: 0.8, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0, options: UIViewAnimationOptions.curveEaseIn, animations: {
+            btn.transform = CGAffineTransform.identity
+        }) { (true) in
+            let removeges = UITapGestureRecognizer.init(target: self, action: #selector(BSReleaseItemsView.cancelBtnClicked(btn:)))
+            self.addGestureRecognizer(removeges)
         }
     }
-    // 消失
+    /// 消失
     func drownBtn() {
         if index <= 0{
             timer.invalidate()
@@ -125,23 +134,18 @@ class BSReleaseItemsView: UIView {
         index-=1
     }
     func setDrownPopBtn(btn:ItemButton) {
-        UIView.animate(withDuration: 0.25) { 
+        UIView.animate(withDuration: 0.25) {
             btn.transform = CGAffineTransform(translationX: 0, y: self.bounds.size.height);
         }
     }
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
 }
 
-
+/// ------ItemButton------
 class ItemButton: UIButton {
     
     var imageV = UIImageView()
     var titleL = UILabel()
     
-    
-    //MARK: - Interface
     override init(frame: CGRect) {
         super.init(frame: frame)
         if !self.isEqual(nil) {

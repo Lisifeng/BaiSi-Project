@@ -11,12 +11,11 @@ import UIKit
 class MeViewController: BSThemeViewController,UITableViewDelegate,UITableViewDataSource,BSCategoryCellDelegate,BSContentCellDelegate{
 
     var mainTableView = UITableView()
-    
-    
+
+    /// Interface
     override func viewDidLoad() {
         super.viewDidLoad()
         self.automaticallyAdjustsScrollViewInsets = false
-        
         self.title("我")
         self.setUpSubs()
         
@@ -40,7 +39,40 @@ class MeViewController: BSThemeViewController,UITableViewDelegate,UITableViewDat
         self.view.addSubview(mainTableView)
     }
     
-    //MARK: - UITableViewDelegate
+    
+    //MARK: - BSCategoryCellDelegate
+    func BSCategoryCellItemBtnClicked(itemBtn:DoubleLabelButton){
+    
+        
+        
+    }
+    
+    //MARK: -  BSContentCellDelegate
+    func BSContentCellItemBtnClicked(btn:ItemButton){
+    
+        
+        
+    }
+    
+    // →
+    override func BSNavgationViewButtonClickedWithRightSide(_ sender:UIButton){
+        JBLog("💖"+"\(sender.tag)"+"\(sender.titleLabel?.text)")
+        
+        let setVc = BSSetViewController()
+        self.navigationController?.pushViewController(setVc, animated: true)
+ 
+        //JBLog("xin💖"+"\(BSFileManager.getFolderSizeWithPath(folderpath:  "\(NSHomeDirectory())"+"/"+"Library"+"/"+"Caches"))")
+    }
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+}
+
+// MARK: - About TableView
+extension MeViewController {
+    //MARK: - UITableViewDataSource
     func numberOfSections(in tableView: UITableView) -> Int {
         return 4
     }
@@ -171,34 +203,4 @@ class MeViewController: BSThemeViewController,UITableViewDelegate,UITableViewDat
             break
         }
     }
-    
-    //MARK: - BSCategoryCellDelegate
-    func BSCategoryCellItemBtnClicked(itemBtn:DoubleLabelButton){
-    
-        
-        
-    }
-    
-    //MARK: -  BSContentCellDelegate
-    func BSContentCellItemBtnClicked(btn:ItemButton){
-    
-        
-        
-    }
-    
-    // →
-    override func BSNavgationViewButtonClickedWithRightSide(_ sender:UIButton){
-        print("💖"+"\(sender.tag)"+"\(sender.titleLabel?.text)")
-        
-        let setVc = BSSetViewController()
-        self.navigationController?.pushViewController(setVc, animated: true)
- 
-        
-//        print("xin💖"+"\(BSFileManager.getFolderSizeWithPath(folderpath:  "\(NSHomeDirectory())"+"/"+"Library"+"/"+"Caches"))")
-    }
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
 }

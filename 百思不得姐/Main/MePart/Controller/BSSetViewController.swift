@@ -13,7 +13,6 @@ class BSSetViewController: BSThemeViewController,UITableViewDelegate,UITableView
 
     var mainTableView = UITableView()
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.back("")
@@ -47,9 +46,9 @@ class BSSetViewController: BSThemeViewController,UITableViewDelegate,UITableView
     //MARK: - UITableViewDelegate
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let path = NSHomeDirectory()
-        print(path)
+        JBLog(path)
         
-//        BSFileManager.delegate = self
+        //BSFileManager.delegate = self
         let ifClear = BSFileManager.clearFolderWithPath(folderpath: "\(NSHomeDirectory())"+"/"+"Library"+"/"+"Caches")
         if ifClear {
             JHB_HUDView.showMsg("清除成功!")
@@ -57,10 +56,10 @@ class BSSetViewController: BSThemeViewController,UITableViewDelegate,UITableView
         }
     }
 
-    /*
     //MARK: - FileManagerDelegate
+    /*
     func fileManager(_ fileManager: FileManager, shouldRemoveItemAtPath path: String) -> Bool {
-        print("💗"+"\(path)")
+        JBLog("💗"+"\(path)")
         
         
         return true
@@ -70,7 +69,4 @@ class BSSetViewController: BSThemeViewController,UITableViewDelegate,UITableView
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
- 
 }

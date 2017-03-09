@@ -83,17 +83,17 @@ class BSCheckVideoView: UIView {
             let loadedTime = avalableDurationWithplayerItem()
             let totalTime = CMTimeGetSeconds(playerItem.duration)
             let percent = loadedTime/totalTime
-            print("💖percent:"+"\(percent)")
+            JBLog("💖percent:"+"\(percent)")
             //            self.playerView.progressView.progress = Float(percent)
         }else if keyPath == "status"{
             //            AVPlayerItemStatusUnknown,AVPlayerItemStatusReadyToPlay, AVPlayerItemStatusFailed。只有当status为AVPlayerItemStatusReadyToPlay是调用 AVPlayer的play方法视频才能播放。
-            print("💖status:"+"\(playerItem.status)")
-            print("💖playerItem.status.rawValue:"+"\(playerItem.status.rawValue)")
+            JBLog("💖status:"+"\(playerItem.status)")
+            JBLog("💖playerItem.status.rawValue:"+"\(playerItem.status.rawValue)")
             if playerItem.status == AVPlayerItemStatus.readyToPlay{
                 // 只有在这个状态下才能播放
                 self.avplayer.play()
             }else{
-                print("加载异常")
+                JBLog("加载异常")
             }
         }
     }

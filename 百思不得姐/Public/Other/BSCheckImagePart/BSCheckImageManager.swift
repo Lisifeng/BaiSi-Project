@@ -12,13 +12,12 @@ import Foundation
 protocol BSCheckImageManagerDelegate {
     /**
      *  获取一个和被点击的imageView一模一样(相同大小,图片相同)的UIImageView
-     *
      *  @return 放大动画使用的UIImageView
      */
 
     func browserAnimateFirstShowImageView() -> UIImageView
     
-    ///获取被点击cell相对于keywindow的frame
+    /// 获取被点击cell相对于keywindow的frame
     func browserAnimationFromRect() -> CGRect
 
     
@@ -94,7 +93,6 @@ class BSCheckImageManager: NSObject,UIViewControllerTransitioningDelegate, UIVie
         }else{
             self.animateDismissedController(transitionContext: transitionContext)
         }
-
     }
     
     

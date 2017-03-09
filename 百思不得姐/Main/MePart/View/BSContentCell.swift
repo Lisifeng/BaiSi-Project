@@ -15,9 +15,7 @@ protocol BSContentCellDelegate {
 class BSContentCell: UITableViewCell {
 
     let _cellHeight = (ScreenWidth/5+30)*2
-    
     var delegate : BSContentCellDelegate?
-    
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
