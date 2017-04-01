@@ -39,7 +39,9 @@ class EssenceViewController: BSThemeViewController , UIScrollViewDelegate , UITa
         viewNumber = topicsArray.count
         self.setUpSubViews()
         self.setFirstView()
+        
     }
+    
     /// 创建并设置子控件
     func setUpSubViews() {
         mainScrollView = UIScrollView.init(frame: CGRect.init(x: 0, y:topListView.frame.maxY , width: ScreenWidth, height: ScreenHeight-BSNavHeight-BSTabBarHeight))// BSNavHeight
