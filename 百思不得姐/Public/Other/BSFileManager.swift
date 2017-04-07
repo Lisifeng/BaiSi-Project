@@ -44,10 +44,9 @@ extension FileManager {
     /**  删除指定路径的cache */
     func clearFolderWithPath(folderpath:String) -> Bool {
         
-        var deleteSuccess : Bool = false
         let fileManager = FileManager.default
         if fileManager.fileExists(atPath: folderpath as String) {
-             let childerFiles = fileManager.subpaths(atPath: folderpath as String)
+            let childerFiles = fileManager.subpaths(atPath: folderpath as String)
             if (childerFiles?.count)! > 0 {
                 for fileName in childerFiles! {
                     let absolutePath = "\(folderpath)"+"/"+"\(fileName)"
@@ -56,7 +55,6 @@ extension FileManager {
                         let what : () = try fileManager.removeItem(atPath: absolutePath)
                         
                         JBLog(what)
-                        deleteSuccess = true
                     } catch {
                         
                     }

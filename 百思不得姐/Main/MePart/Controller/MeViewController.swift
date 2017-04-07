@@ -56,7 +56,7 @@ class MeViewController: BSThemeViewController,UITableViewDelegate,UITableViewDat
     
     // →
     override func BSNavgationViewButtonClickedWithRightSide(_ sender:UIButton){
-        JBLog("💖"+"\(sender.tag)"+"\(sender.titleLabel?.text)")
+        JBLog("💖"+"\(sender.tag)"+"\(String(describing: sender.titleLabel?.text))")
         
         let setVc = BSSetViewController()
         self.navigationController?.pushViewController(setVc, animated: true)

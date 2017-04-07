@@ -141,7 +141,7 @@ class BSCheckImageViewController: UIViewController,UICollectionViewDataSource, U
         JBLog("---")
         JHB_HUDView.hideProgressOfDIYType()
         if error != nil {
-            JHB_HUDView.showMsg("\(error)" as NSString)
+            JHB_HUDView.showMsg("\(String(describing: error))" as NSString)
             JBLog(error!)
             return
         }

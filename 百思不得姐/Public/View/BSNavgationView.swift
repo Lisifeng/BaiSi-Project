@@ -76,7 +76,7 @@ extension BSNavgationView{
                     return
                 }
                 eventBtn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 13)
-                eventBtn.setImage(UIImage.init(named: image as! String), for: UIControlState.normal)
+                eventBtn.setImage(UIImage.init(named: image! as String), for: UIControlState.normal)
                 eventBtn.setTitle(title as String?, for: UIControlState.normal)
                 eventBtn.sizeToFit()
                 eventBtn.frame = CGRect.init(x: self.bounds.size.width-eventBtn.bounds.size.width-CGFloat(BSUsualmargin), y: (self.bounds.size.height-eventBtn.bounds.size.height)/2, width: eventBtn.bounds.size.width, height: 25)

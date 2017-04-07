@@ -93,7 +93,7 @@ extension BSReleaseItemsView {
     
     /// 选项按钮点击
     func itemBtnClicked(btn:ItemButton) {
-        JBLog("\(btn.tag)"+"\(btn.titleL.text)")
+        JBLog("\(btn.tag)"+"\(String(describing: btn.titleL.text))")
     }
     
     /// 取消按钮点击
