@@ -76,6 +76,8 @@
 		B2D444471DC97D1400C2F483 /* JHB_BridgeFile.m in Sources */ = {isa = PBXBuildFile; fileRef = B2D444461DC97D1400C2F483 /* JHB_BridgeFile.m */; };
 		B2E15BEE1DC9C80900602C97 /* secNextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E15BED1DC9C80900602C97 /* secNextViewController.swift */; };
 		EF5BE2D11DB1D80E00BC5D89 /* BSNavgationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5BE2D01DB1D80E00BC5D89 /* BSNavgationView.swift */; };
+		EF6A694B1EB336F30097A22C /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF6A694A1EB336F30097A22C /* AVFoundation.framework */; };
+		EF6A694D1EB338790097A22C /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF6A694C1EB338790097A22C /* AssetsLibrary.framework */; };
 		EF92C65D1DBE46ED00698970 /* back_image@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EF92C65B1DBE46ED00698970 /* back_image@2x.png */; };
 		EF92C65E1DBE46ED00698970 /* dismiss_image@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EF92C65C1DBE46ED00698970 /* dismiss_image@2x.png */; };
 		EF92C6601DBE63C300698970 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF92C65F1DBE63C300698970 /* Alamofire.framework */; };
@@ -160,6 +162,8 @@
 		B2D444461DC97D1400C2F483 /* JHB_BridgeFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHB_BridgeFile.m; sourceTree = "<group>"; };
 		B2E15BED1DC9C80900602C97 /* secNextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = secNextViewController.swift; sourceTree = "<group>"; };
 		EF5BE2D01DB1D80E00BC5D89 /* BSNavgationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BSNavgationView.swift; sourceTree = "<group>"; };
+		EF6A694A1EB336F30097A22C /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		EF6A694C1EB338790097A22C /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		EF92C65B1DBE46ED00698970 /* back_image@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back_image@2x.png"; sourceTree = "<group>"; };
 		EF92C65C1DBE46ED00698970 /* dismiss_image@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dismiss_image@2x.png"; sourceTree = "<group>"; };
 		EF92C65F1DBE63C300698970 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "../../Library/Developer/Xcode/DerivedData/百思不得姐-gccxosdidimpksakgtjvmodzrpvq/Build/Products/Debug-iphonesimulator/Alamofire/Alamofire.framework"; sourceTree = "<group>"; };
@@ -176,6 +180,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF6A694D1EB338790097A22C /* AssetsLibrary.framework in Frameworks */,
+				EF6A694B1EB336F30097A22C /* AVFoundation.framework in Frameworks */,
 				EF92C6601DBE63C300698970 /* Alamofire.framework in Frameworks */,
 				851718F837547B0E98716B93 /* Pods______.framework in Frameworks */,
 			);
@@ -187,6 +193,8 @@
 		756A41D67549E7B35774F770 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EF6A694C1EB338790097A22C /* AssetsLibrary.framework */,
+				EF6A694A1EB336F30097A22C /* AVFoundation.framework */,
 				EF92C65F1DBE63C300698970 /* Alamofire.framework */,
 				F5506AB096CB1348B9EDBDF5 /* Pods______.framework */,
 			);

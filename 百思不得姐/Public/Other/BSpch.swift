@@ -9,12 +9,26 @@
 import Foundation
 import UIKit
 // 实现自己的打印方法
-func JBLog(_ item: Any...) {
+/// 打印log， 格式: [时间(精确到毫秒)][文件名(类名) 方法名]: log message
+func JBLog<T>(_ log: T?, fileName: String = #file, methodName: String = #function, lineNumber: Int = #line) {
+    
+    let className = (fileName as NSString).lastPathComponent.replacingOccurrences(of: ".swift", with: "", options: String.CompareOptions.backwards, range: nil)
+    
+    let formatter = DateFormatter()
+    formatter.dateFormat = "yyyy-MM-dd HH:mm:ss.SSS"
+    let dateString = formatter.string(from: Date())
+    
+    
     #if DEBUG
         
-        print("文件:"+"\(URL(fileURLWithPath:#file).lastPathComponent)")
-        print("位置:"+"\(#line)")
-        print("内容:"+"\(item.last!)")
+        if let logMessage = log
+        {
+            print("\n[\(dateString)] [\(className) \(methodName)]: \n\(logMessage)")
+        }
+        else
+        {
+            print("\n[\(dateString)] [\(className) \(methodName)]: \n\(String(describing: log))")
+        }
     #endif
 }
 // 屏幕宽高

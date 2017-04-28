@@ -6,9 +6,12 @@
 //  Copyright © 2016年 bruce. All rights reserved.
 //
 
+import Foundation
 import UIKit
+import AVFoundation
+import AssetsLibrary
 
-class BSHomePageViewController: BSThemeViewController,UITableViewDelegate,UITableViewDataSource {
+class BSHomePageViewController: BSThemeViewController,UITableViewDelegate,UITableViewDataSource ,UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     var mainTableView = UITableView()
     var headerView = HeaderView()
@@ -36,11 +39,37 @@ class BSHomePageViewController: BSThemeViewController,UITableViewDelegate,UITabl
         mainTableView.showsVerticalScrollIndicator = false
         mainTableView.backgroundColor = BSColor.colorWithHex(0xeeeeee);
         let header = HeaderView.init(frame: CGRect.init(x: 0, y: 0, width: self.mainTableView.bounds.size.width, height: 260))
+         let tapGes = UITapGestureRecognizer.init(target: self, action: #selector(changeIcon))
+        header.iconImageView.isUserInteractionEnabled = true
+        header.iconImageView.addGestureRecognizer(tapGes)
         mainTableView.tableHeaderView = header
         self.headerView = header
         mainTableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell1")
         self.view.addSubview(mainTableView)
     }
+
+
+    func changeIcon() -> () {
+        let alertC = UIAlertController.init(title: nil, message: nil, preferredStyle: .actionSheet)
+        let action_cancel = UIAlertAction.init(title: "cancel", style: .cancel) {[weak self] (action) in
+            self?.cancelPickingImages()
+        }
+        let action_camera = UIAlertAction.init(title: "Camera", style: .default) {[weak self] (action) in
+            self?.openCamera()
+        }
+        let action_photos = UIAlertAction.init(title: "Album", style: .default) {[weak self] (action) in
+            self?.openPhotoPicker()
+        }
+        alertC.addAction(action_cancel)
+        alertC.addAction(action_camera)
+        alertC.addAction(action_photos)
+        
+        present(alertC, animated: true) {
+            
+        }
+
+    }
+    
     
     
     
@@ -48,7 +77,110 @@ class BSHomePageViewController: BSThemeViewController,UITableViewDelegate,UITabl
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+}
+
+
+//MARK: - UIPickerViewDelegate
+extension BSHomePageViewController {
     
+    func openCamera() -> () {
+        if !UIImagePickerController.isSourceTypeAvailable(.camera)  // 设备不支持相机
+        {
+            let alertC = UIAlertController.init(title: "设备不支持相机", message: nil, preferredStyle: .alert)
+            let action_cancel = UIAlertAction.init(title: "明白了", style: .cancel, handler: {[weak self] (action) in
+                self?.cancelPickingImages()
+            })
+            alertC.addAction(action_cancel)
+            present(alertC, animated: true, completion: {
+                
+            })
+            return
+        }
+        
+        
+        let authorization = AVCaptureDevice.authorizationStatus(forMediaType: AVMediaTypeVideo)
+        if authorization == .denied || authorization == .restricted     //没有相机的访问权限
+        {
+            let alertC = UIAlertController.init(title: "没有相机的访问权限", message: "请先在 设置->隐私->相机 开启权限", preferredStyle: .alert)
+            let action_cancel = UIAlertAction.init(title: "确定", style: .cancel, handler: {[weak self] (action) in
+                self?.cancelPickingImages()
+            })
+            alertC.addAction(action_cancel)
+            present(alertC, animated: true, completion: {
+                
+            })
+            return
+        }
+        
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.sourceType = .camera
+        imagePicker.allowsEditing = true
+        imagePicker.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+        
+        present(imagePicker, animated: true) {
+            
+        }
+    }
+    
+    func openPhotoPicker() -> () {
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+            let autoStatus = ALAssetsLibrary.authorizationStatus()
+            switch autoStatus {
+            case .notDetermined:
+                print("not determined !")
+                let picker = UIImagePickerController.init()
+                picker.view.backgroundColor = self.view.backgroundColor
+                picker.sourceType = .photoLibrary
+                picker.delegate = self
+                picker.allowsEditing = true
+                self.present(picker, animated: true, completion: nil)
+
+                
+                break
+            case .authorized:
+                let picker = UIImagePickerController.init()
+                picker.view.backgroundColor = self.view.backgroundColor
+                picker.sourceType = .photoLibrary
+                picker.delegate = self
+                picker.allowsEditing = true
+                self.present(picker, animated: true, completion: nil)
+                break
+            case .denied,.restricted:
+                print("reject")
+                break
+            default:break
+            }
+            
+            
+        }
+    }
+    
+    func cancelPickingImages() -> () {
+        /*
+         QBImagePickerController *imagePickerController = [[QBImagePickerController alloc] init];
+         imagePickerController.delegate = self;
+         imagePickerController.allowsMultipleSelection = YES;
+         imagePickerController.maximumNumberOfSelection = KMAXCOUNT_PHOTO - [_imageUrlArray count];
+         imagePickerController.filterType = QBImagePickerControllerFilterTypePhotos;
+         imagePickerController.view.tag = 100;
+         
+         UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:imagePickerController];
+         [self presentViewController:navigationController animated:YES completion:nil];*/
+    }
+    
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        //cancel
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        //select
+        self.dismiss(animated: true, completion: nil)
+        print("select")
+    }
+
 }
 
 //MARK: - UITableViewDataSource
@@ -120,6 +252,9 @@ class HeaderView: UIView {
         iconImageView.layer.borderColor = BSColor.colorWithHex(0xffffff).cgColor
         iconImageView.layer.borderWidth = 2
         iconImageView.contentMode = UIViewContentMode.scaleToFill
+        
+       
+        
         
         self.addSubview(bgImageView)
         self.addSubview(contentView)
