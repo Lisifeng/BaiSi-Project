@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+
 // 实现自己的打印方法
 /// 打印log， 格式: [时间(精确到毫秒)][文件名(类名) 方法名]: log message
 func JBLog<T>(_ log: T?, fileName: String = #file, methodName: String = #function, lineNumber: Int = #line) {
@@ -31,6 +32,7 @@ func JBLog<T>(_ log: T?, fileName: String = #file, methodName: String = #functio
         }
     #endif
 }
+
 // 屏幕宽高
 let ScreenWidth : CGFloat = UIScreen.main.bounds.size.width
 let ScreenHeight : CGFloat = UIScreen.main.bounds.size.height
@@ -53,12 +55,8 @@ let BSNavHeight : CGFloat = 60
 // 系统状态栏高度
 let BSStatusHeight : CGFloat = UIApplication.shared.statusBarFrame.height
 
-//// NAV控制器下顶部高度
-//let BSNavTOPHeight : CGFloat = BSStatusHeight+BSNavHeight
-
 // 百思TabBar高度
 let BSTabBarHeight : CGFloat = BSTabBarController().TabBarHeight()
-
 
 // 当前系统版本
 let CurrentVersion = UIDevice.current.systemVersion.hashValue
@@ -68,7 +66,6 @@ let KDEVICE_IS_IPHONE4_4S = (UIScreen.main.bounds.size.height == 480)
 let KDEVICE_IS_IPHONE5_5S = (UIScreen.main.bounds.size.height == 568)
 let KDEVICE_IS_IPHONE6_6S = (UIScreen.main.currentMode?.size)!.equalTo(CGSize.init(width: 750, height: 1334))
 let KDEVICE_IS_IPHONE6_6S_PLUS = (UIScreen.main.currentMode?.size)!.equalTo(CGSize.init(width: 1242, height: 2208))
-
 
 // 百思appid
 let BSAPPID = "25538"
