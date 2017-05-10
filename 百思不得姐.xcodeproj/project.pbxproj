@@ -59,7 +59,6 @@
 		B2AF8B061DAF63BD0073E5E1 /* _____.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B2AF8AFF1DAF63BD0073E5E1 /* _____.xcdatamodeld */; };
 		B2AF8B071DAF63BD0073E5E1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2AF8B011DAF63BD0073E5E1 /* LaunchScreen.storyboard */; };
 		B2AF8B081DAF63BD0073E5E1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2AF8B031DAF63BD0073E5E1 /* Main.storyboard */; };
-		B2AF8B0B1DAF64E10073E5E1 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B2AF8B0A1DAF64E10073E5E1 /* Info.plist */; };
 		B2AF8B0D1DAF68000073E5E1 /* BSTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AF8B0C1DAF68000073E5E1 /* BSTabBarController.swift */; };
 		B2AF8B1B1DAF70DE0073E5E1 /* tabBar_aboutMeVc_normal_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B2AF8B101DAF70DE0073E5E1 /* tabBar_aboutMeVc_normal_icon@3x.png */; };
 		B2AF8B1C1DAF70DE0073E5E1 /* tabBar_aboutMeVc_selected_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B2AF8B111DAF70DE0073E5E1 /* tabBar_aboutMeVc_selected_icon@3x.png */; };
@@ -81,7 +80,6 @@
 		EF170FE91EC1EA2A009F221F /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF170FE41EC1EA2A009F221F /* SnapKit.framework */; };
 		EF5BE2D11DB1D80E00BC5D89 /* BSNavgationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5BE2D01DB1D80E00BC5D89 /* BSNavgationView.swift */; };
 		EF6A694B1EB336F30097A22C /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF6A694A1EB336F30097A22C /* AVFoundation.framework */; };
-		EF6A694D1EB338790097A22C /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF6A694C1EB338790097A22C /* AssetsLibrary.framework */; };
 		EF92C65D1DBE46ED00698970 /* back_image@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EF92C65B1DBE46ED00698970 /* back_image@2x.png */; };
 		EF92C65E1DBE46ED00698970 /* dismiss_image@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EF92C65C1DBE46ED00698970 /* dismiss_image@2x.png */; };
 		EF92C6601DBE63C300698970 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF92C65F1DBE63C300698970 /* Alamofire.framework */; };
@@ -90,6 +88,7 @@
 		EF92C6661DC0EA7F00698970 /* BSCheckImageDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF92C6651DC0EA7F00698970 /* BSCheckImageDetailView.swift */; };
 		EF92C6681DC0F66300698970 /* redBack_image@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EF92C6671DC0F66300698970 /* redBack_image@2x.png */; };
 		EFA6AD211DDB535C00FCBFE0 /* BSMe_message_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EFA6AD201DDB535C00FCBFE0 /* BSMe_message_icon@2x.png */; };
+		EFC233DE1EC29D4C00EDE0D7 /* PhotosUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFC233DD1EC29D4C00EDE0D7 /* PhotosUI.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -182,6 +181,7 @@
 		EF92C6651DC0EA7F00698970 /* BSCheckImageDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BSCheckImageDetailView.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		EF92C6671DC0F66300698970 /* redBack_image@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "redBack_image@2x.png"; sourceTree = "<group>"; };
 		EFA6AD201DDB535C00FCBFE0 /* BSMe_message_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BSMe_message_icon@2x.png"; sourceTree = "<group>"; };
+		EFC233DD1EC29D4C00EDE0D7 /* PhotosUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PhotosUI.framework; path = System/Library/Frameworks/PhotosUI.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,11 +189,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFC233DE1EC29D4C00EDE0D7 /* PhotosUI.framework in Frameworks */,
 				EF170FE51EC1EA2A009F221F /* JHB_HUDView.framework in Frameworks */,
 				EF170FE61EC1EA2A009F221F /* Kingfisher.framework in Frameworks */,
 				EF170FE71EC1EA2A009F221F /* MJRefresh.framework in Frameworks */,
 				EF170FE91EC1EA2A009F221F /* SnapKit.framework in Frameworks */,
-				EF6A694D1EB338790097A22C /* AssetsLibrary.framework in Frameworks */,
 				EF6A694B1EB336F30097A22C /* AVFoundation.framework in Frameworks */,
 				EF92C6601DBE63C300698970 /* Alamofire.framework in Frameworks */,
 				2DE607336C2B0614F5F5D504 /* Pods______.framework in Frameworks */,
@@ -206,6 +206,7 @@
 		756A41D67549E7B35774F770 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EFC233DD1EC29D4C00EDE0D7 /* PhotosUI.framework */,
 				EF170FE01EC1EA2A009F221F /* JHB_HUDView.framework */,
 				EF170FE11EC1EA2A009F221F /* Kingfisher.framework */,
 				EF170FE21EC1EA2A009F221F /* MJRefresh.framework */,
@@ -672,7 +673,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = bruce;
 				TargetAttributes = {
 					B2AF8AD31DAF376E0073E5E1 = {
@@ -713,7 +714,6 @@
 				B26C01731DDB19D100FE9CB1 /* BSMe_rightArrow_icon@2x.png in Resources */,
 				B26C01641DDB076200FE9CB1 /* BSMe_byrandom_icon@2x.png in Resources */,
 				B26C01661DDB076200FE9CB1 /* BSMe_mine_icon@2x.png in Resources */,
-				B2AF8B0B1DAF64E10073E5E1 /* Info.plist in Resources */,
 				B22FE1271DDC4C2F00C318AC /* BSMe_homeBgPlace_image@2x.png in Resources */,
 				B2AF8B251DAF70DE0073E5E1 /* tabBar_timeLineVc_selected_icon@3x.png in Resources */,
 				B2AF8B081DAF63BD0073E5E1 /* Main.storyboard in Resources */,
@@ -882,6 +882,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -932,6 +933,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;

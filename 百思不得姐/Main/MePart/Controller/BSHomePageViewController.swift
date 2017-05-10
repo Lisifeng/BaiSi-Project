@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 import AVFoundation
-import AssetsLibrary
+import PhotosUI
 
 class BSHomePageViewController: BSThemeViewController,UITableViewDelegate,UITableViewDataSource ,UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
@@ -125,7 +125,8 @@ extension BSHomePageViewController {
     
     func openPhotoPicker() -> () {
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
-            let autoStatus = ALAssetsLibrary.authorizationStatus()
+            let autoStatus = PHPhotoLibrary.authorizationStatus()
+            
             switch autoStatus {
             case .notDetermined:
                 print("not determined !")
@@ -149,10 +150,7 @@ extension BSHomePageViewController {
             case .denied,.restricted:
                 print("reject")
                 break
-            default:break
             }
-            
-            
         }
     }
     
