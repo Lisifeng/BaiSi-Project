@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import pop
+
 import Foundation
 
 class BSReleaseItemsView: UIView {

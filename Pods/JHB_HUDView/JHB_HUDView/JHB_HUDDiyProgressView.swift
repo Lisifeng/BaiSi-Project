@@ -148,7 +148,7 @@ class JHB_HUDDiyProgressView: UIView {
             //绕哪个轴，那么就改成什么：这里是绕y轴 ---> transform.rotation.y
             let rotationAnimation = CABasicAnimation.init(keyPath: "transform.rotation.y")
             //旋转角度
-            rotationAnimation.toValue = NSNumber.init(value: M_PI as Double)
+            rotationAnimation.toValue = NSNumber.init(value: Double.pi)
             //每次旋转的时间（单位秒）
             rotationAnimation.duration = self.diySpeed
             rotationAnimation.isCumulative = true
@@ -164,7 +164,7 @@ class JHB_HUDDiyProgressView: UIView {
             //绕哪个轴，那么就改成什么：这里是z轴 ---> transform.rotation.y
             let rotationAnimation = CABasicAnimation.init(keyPath: "transform.rotation.z")
             //旋转角度
-            rotationAnimation.toValue = NSNumber.init(value: M_PI as Double)
+            rotationAnimation.toValue = NSNumber.init(value: Double.pi)
             //每次旋转的时间（单位秒）
             rotationAnimation.duration = self.diySpeed
             rotationAnimation.isCumulative = true

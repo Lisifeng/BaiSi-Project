@@ -132,7 +132,7 @@ public class Constraint {
             #endif
             
             // get layout constant
-            let layoutConstant: CGFloat = self.constant.constraintConstantTargetValueFor(layoutToAttribute)
+            let layoutConstant: CGFloat = self.constant.constraintConstantTargetValueFor(layoutAttribute: layoutToAttribute)
             
             // get layout to
             var layoutTo: AnyObject? = self.to.target
@@ -231,7 +231,7 @@ public class Constraint {
     internal func updateConstantAndPriorityIfNeeded() {
         for layoutConstraint in self.layoutConstraints {
             let attribute = (layoutConstraint.secondAttribute == .notAnAttribute) ? layoutConstraint.firstAttribute : layoutConstraint.secondAttribute
-            layoutConstraint.constant = self.constant.constraintConstantTargetValueFor(attribute)
+            layoutConstraint.constant = self.constant.constraintConstantTargetValueFor(layoutAttribute: attribute)
             
             #if os(iOS) || os(tvOS)
                 let requiredPriority: UILayoutPriority = UILayoutPriorityRequired
@@ -262,11 +262,11 @@ public class Constraint {
                 }
                 
                 let updateLayoutAttribute = (updateLayoutConstraint.secondAttribute == .notAnAttribute) ? updateLayoutConstraint.firstAttribute : updateLayoutConstraint.secondAttribute
-                updateLayoutConstraint.constant = self.constant.constraintConstantTargetValueFor(updateLayoutAttribute)
+                updateLayoutConstraint.constant = self.constant.constraintConstantTargetValueFor(layoutAttribute: updateLayoutAttribute)
             }
         } else {
             NSLayoutConstraint.activate(layoutConstraints)
-            view.snp.add([self])
+            view.snp.add(constraints: [self])
         }
     }
     
@@ -277,6 +277,6 @@ public class Constraint {
         }
         let layoutConstraints = self.layoutConstraints
         NSLayoutConstraint.deactivate(layoutConstraints)
-        view.snp.remove([self])
+        view.snp.remove(constraints: [self])
     }
 }

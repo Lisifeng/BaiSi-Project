@@ -39,15 +39,14 @@ class JHB_HUDTopViewController: UIViewController{
         }
         
         kIfCanRotated = false
-        self.shouldAutorotate
-        self.supportedInterfaceOrientations
-
+        print(self.shouldAutorotate)
+        print(self.supportedInterfaceOrientations)
     }
     
     func canRotate() {
         kIfCanRotated = true
-        self.shouldAutorotate
-        self.supportedInterfaceOrientations
+        print(self.shouldAutorotate)
+        print(self.supportedInterfaceOrientations)
     }
   
     // MARK: - 重写旋转方法

@@ -2,6 +2,7 @@
 
 <h1 align="center">中文介绍✅</h1>
 <br>
+<h2 align="center" color="red">特别注意:(type<=0.1.3)suit to(Swift type<3.0).(type>=0.1.5)suit to(Swift type>=3.0</h2><br>
 <br>
 <h2 align="left">简介</h2><br>
 这是一款在>=swift3.0和目标设备>=8.0及更新的环境最为简单可行的实现并展示进程挡板(HUD)的插件

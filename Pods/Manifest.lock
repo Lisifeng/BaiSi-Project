@@ -1,25 +1,24 @@
 PODS:
   - Alamofire (4.0.1)
-  - JHB_HUDView (0.1.5)
+  - JHB_HUDView (0.1.8)
   - Kingfisher (3.1.4)
   - MJRefresh (3.1.12)
-  - pop (1.0.9)
   - SnapKit (3.0.2)
 
 DEPENDENCIES:
   - Alamofire (~> 4.0.1)
-  - JHB_HUDView (~> 0.1.5)
+  - JHB_HUDView (~> 0.1.8)
   - Kingfisher (~> 3.1.4)
   - MJRefresh (~> 3.1.12)
-  - pop (~> 1.0.9)
   - SnapKit (~> 3.0.2)
 
 SPEC CHECKSUMS:
   Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
-  JHB_HUDView: ee6ff95369e40d7a04bf5aee1a5552b3c13bb5f4
+  JHB_HUDView: 5b95d9af443ff405bd95bc28731d2ab168d9f840
   Kingfisher: 6c67e3e57f2d81a9cfdfa25052cd86f33ceac9bb
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
-  pop: f667631a5108a2e60d9e8797c9b32ddaf2080bce
   SnapKit: 2e456761aa92d4d4067a7a5594c18769d451a8ad
 
-COCOAPODS: 0.39.0
+PODFILE CHECKSUM: 567001d2f71ed96b5e3055d0f099d49ec61e34b5
+
+COCOAPODS: 1.2.1.beta.1

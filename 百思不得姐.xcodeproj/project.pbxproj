@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		851718F837547B0E98716B93 /* Pods______.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5506AB096CB1348B9EDBDF5 /* Pods______.framework */; };
+		2DE607336C2B0614F5F5D504 /* Pods______.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53C5ABF7D266625E7010D7EE /* Pods______.framework */; };
 		B22C4C021DE8205B007F5A5A /* BSMe_set_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B22C4C011DE8205B007F5A5A /* BSMe_set_icon@2x.png */; };
 		B22C4C041DE829F4007F5A5A /* BSSetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22C4C031DE829F4007F5A5A /* BSSetViewController.swift */; };
 		B22C4C061DE82D29007F5A5A /* BSFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22C4C051DE82D29007F5A5A /* BSFileManager.swift */; };
@@ -75,6 +75,10 @@
 		B2CEF0621DB0A88900F26C45 /* BSColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CEF0611DB0A88900F26C45 /* BSColor.swift */; };
 		B2D444471DC97D1400C2F483 /* JHB_BridgeFile.m in Sources */ = {isa = PBXBuildFile; fileRef = B2D444461DC97D1400C2F483 /* JHB_BridgeFile.m */; };
 		B2E15BEE1DC9C80900602C97 /* secNextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E15BED1DC9C80900602C97 /* secNextViewController.swift */; };
+		EF170FE51EC1EA2A009F221F /* JHB_HUDView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF170FE01EC1EA2A009F221F /* JHB_HUDView.framework */; };
+		EF170FE61EC1EA2A009F221F /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF170FE11EC1EA2A009F221F /* Kingfisher.framework */; };
+		EF170FE71EC1EA2A009F221F /* MJRefresh.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF170FE21EC1EA2A009F221F /* MJRefresh.framework */; };
+		EF170FE91EC1EA2A009F221F /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF170FE41EC1EA2A009F221F /* SnapKit.framework */; };
 		EF5BE2D11DB1D80E00BC5D89 /* BSNavgationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5BE2D01DB1D80E00BC5D89 /* BSNavgationView.swift */; };
 		EF6A694B1EB336F30097A22C /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF6A694A1EB336F30097A22C /* AVFoundation.framework */; };
 		EF6A694D1EB338790097A22C /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF6A694C1EB338790097A22C /* AssetsLibrary.framework */; };
@@ -89,8 +93,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		176F69547FCCC0EC904FB64E /* Pods-百思不得姐.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-百思不得姐.debug.xcconfig"; path = "Pods/Target Support Files/Pods-百思不得姐/Pods-百思不得姐.debug.xcconfig"; sourceTree = "<group>"; };
-		7D9D39AFE373F6D8CFC324AB /* Pods-百思不得姐.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-百思不得姐.release.xcconfig"; path = "Pods/Target Support Files/Pods-百思不得姐/Pods-百思不得姐.release.xcconfig"; sourceTree = "<group>"; };
+		03E2607C43D1C1BA8376186C /* Pods-百思不得姐.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-百思不得姐.release.xcconfig"; path = "Pods/Target Support Files/Pods-百思不得姐/Pods-百思不得姐.release.xcconfig"; sourceTree = "<group>"; };
+		53C5ABF7D266625E7010D7EE /* Pods______.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods______.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B22C4C011DE8205B007F5A5A /* BSMe_set_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BSMe_set_icon@2x.png"; sourceTree = "<group>"; };
 		B22C4C031DE829F4007F5A5A /* BSSetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BSSetViewController.swift; sourceTree = "<group>"; };
 		B22C4C051DE82D29007F5A5A /* BSFileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BSFileManager.swift; sourceTree = "<group>"; };
@@ -157,10 +161,16 @@
 		B2AF8B261DAF715A0073E5E1 /* BSTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BSTabBar.swift; sourceTree = "<group>"; };
 		B2CEF05F1DB0A65F00F26C45 /* BSpch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BSpch.swift; sourceTree = "<group>"; };
 		B2CEF0611DB0A88900F26C45 /* BSColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BSColor.swift; sourceTree = "<group>"; };
-		B2D444441DC97D1400C2F483 /* 百思不得姐-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "百思不得姐-Bridging-Header.h"; sourceTree = "<group>"; };
+		B2D444441DC97D1400C2F483 /* Bais-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bais-Bridging-Header.h"; sourceTree = "<group>"; };
 		B2D444451DC97D1400C2F483 /* JHB_BridgeFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHB_BridgeFile.h; sourceTree = "<group>"; };
 		B2D444461DC97D1400C2F483 /* JHB_BridgeFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHB_BridgeFile.m; sourceTree = "<group>"; };
 		B2E15BED1DC9C80900602C97 /* secNextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = secNextViewController.swift; sourceTree = "<group>"; };
+		D5B6EDD3C7A001FDBA27838D /* Pods-百思不得姐.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-百思不得姐.debug.xcconfig"; path = "Pods/Target Support Files/Pods-百思不得姐/Pods-百思不得姐.debug.xcconfig"; sourceTree = "<group>"; };
+		EF170FE01EC1EA2A009F221F /* JHB_HUDView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JHB_HUDView.framework; path = "../Library/Developer/Xcode/DerivedData/百思不得姐-dchcyarkewuprodvgmexgurscskk/Build/Products/Debug-iphonesimulator/JHB_HUDView/JHB_HUDView.framework"; sourceTree = "<group>"; };
+		EF170FE11EC1EA2A009F221F /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = "../Library/Developer/Xcode/DerivedData/百思不得姐-dchcyarkewuprodvgmexgurscskk/Build/Products/Debug-iphonesimulator/Kingfisher/Kingfisher.framework"; sourceTree = "<group>"; };
+		EF170FE21EC1EA2A009F221F /* MJRefresh.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MJRefresh.framework; path = "../Library/Developer/Xcode/DerivedData/百思不得姐-dchcyarkewuprodvgmexgurscskk/Build/Products/Debug-iphonesimulator/MJRefresh/MJRefresh.framework"; sourceTree = "<group>"; };
+		EF170FE31EC1EA2A009F221F /* pop.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = pop.framework; path = "../Library/Developer/Xcode/DerivedData/百思不得姐-dchcyarkewuprodvgmexgurscskk/Build/Products/Debug-iphonesimulator/pop/pop.framework"; sourceTree = "<group>"; };
+		EF170FE41EC1EA2A009F221F /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = "../Library/Developer/Xcode/DerivedData/百思不得姐-dchcyarkewuprodvgmexgurscskk/Build/Products/Debug-iphonesimulator/SnapKit/SnapKit.framework"; sourceTree = "<group>"; };
 		EF5BE2D01DB1D80E00BC5D89 /* BSNavgationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BSNavgationView.swift; sourceTree = "<group>"; };
 		EF6A694A1EB336F30097A22C /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		EF6A694C1EB338790097A22C /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
@@ -172,7 +182,6 @@
 		EF92C6651DC0EA7F00698970 /* BSCheckImageDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BSCheckImageDetailView.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		EF92C6671DC0F66300698970 /* redBack_image@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "redBack_image@2x.png"; sourceTree = "<group>"; };
 		EFA6AD201DDB535C00FCBFE0 /* BSMe_message_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BSMe_message_icon@2x.png"; sourceTree = "<group>"; };
-		F5506AB096CB1348B9EDBDF5 /* Pods______.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods______.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,10 +189,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF170FE51EC1EA2A009F221F /* JHB_HUDView.framework in Frameworks */,
+				EF170FE61EC1EA2A009F221F /* Kingfisher.framework in Frameworks */,
+				EF170FE71EC1EA2A009F221F /* MJRefresh.framework in Frameworks */,
+				EF170FE91EC1EA2A009F221F /* SnapKit.framework in Frameworks */,
 				EF6A694D1EB338790097A22C /* AssetsLibrary.framework in Frameworks */,
 				EF6A694B1EB336F30097A22C /* AVFoundation.framework in Frameworks */,
 				EF92C6601DBE63C300698970 /* Alamofire.framework in Frameworks */,
-				851718F837547B0E98716B93 /* Pods______.framework in Frameworks */,
+				2DE607336C2B0614F5F5D504 /* Pods______.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -193,21 +206,17 @@
 		756A41D67549E7B35774F770 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EF170FE01EC1EA2A009F221F /* JHB_HUDView.framework */,
+				EF170FE11EC1EA2A009F221F /* Kingfisher.framework */,
+				EF170FE21EC1EA2A009F221F /* MJRefresh.framework */,
+				EF170FE31EC1EA2A009F221F /* pop.framework */,
+				EF170FE41EC1EA2A009F221F /* SnapKit.framework */,
 				EF6A694C1EB338790097A22C /* AssetsLibrary.framework */,
 				EF6A694A1EB336F30097A22C /* AVFoundation.framework */,
 				EF92C65F1DBE63C300698970 /* Alamofire.framework */,
-				F5506AB096CB1348B9EDBDF5 /* Pods______.framework */,
+				53C5ABF7D266625E7010D7EE /* Pods______.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		77601CC9D2D5B17E69B266C7 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				176F69547FCCC0EC904FB64E /* Pods-百思不得姐.debug.xcconfig */,
-				7D9D39AFE373F6D8CFC324AB /* Pods-百思不得姐.release.xcconfig */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 		B2408FB11DCB225900D7F217 /* BSCheckVideoPart */ = {
@@ -484,7 +493,7 @@
 				B2AF8AD61DAF376E0073E5E1 /* 百思不得姐 */,
 				B2AF8AD51DAF376E0073E5E1 /* Products */,
 				756A41D67549E7B35774F770 /* Frameworks */,
-				77601CC9D2D5B17E69B266C7 /* Pods */,
+				F17B16AA3895ED6EB4F100C9 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -561,7 +570,7 @@
 				B22C4C051DE82D29007F5A5A /* BSFileManager.swift */,
 				B2D444451DC97D1400C2F483 /* JHB_BridgeFile.h */,
 				B2D444461DC97D1400C2F483 /* JHB_BridgeFile.m */,
-				B2D444441DC97D1400C2F483 /* 百思不得姐-Bridging-Header.h */,
+				B2D444441DC97D1400C2F483 /* Bais-Bridging-Header.h */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -624,6 +633,15 @@
 			path = BackPop;
 			sourceTree = "<group>";
 		};
+		F17B16AA3895ED6EB4F100C9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D5B6EDD3C7A001FDBA27838D /* Pods-百思不得姐.debug.xcconfig */,
+				03E2607C43D1C1BA8376186C /* Pods-百思不得姐.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -631,13 +649,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B2AF8AE91DAF376E0073E5E1 /* Build configuration list for PBXNativeTarget "百思不得姐" */;
 			buildPhases = (
-				D640F8D1F44F44968D15E215 /* [CP] Check Pods Manifest.lock */,
+				55A8945A1335E117D0B12C04 /* [CP] Check Pods Manifest.lock */,
 				B2AF8AD01DAF376E0073E5E1 /* Sources */,
 				B2AF8AD11DAF376E0073E5E1 /* Frameworks */,
 				B2AF8AD21DAF376E0073E5E1 /* Resources */,
-				93E0915E23D30F30234C90D1 /* [CP] Embed Pods Frameworks */,
-				2DC9DE333CBCD6095E3B40F1 /* [CP] Copy Pods Resources */,
-				AA2FB03FAC00FA01DEC6DC45 /* Embed Pods Frameworks */,
+				20CD1B226A345B6E3AD732E9 /* [CP] Embed Pods Frameworks */,
+				EA4C5FF40A458405CE38D997 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -735,22 +752,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		2DC9DE333CBCD6095E3B40F1 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-百思不得姐/Pods-百思不得姐-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		93E0915E23D30F30234C90D1 /* [CP] Embed Pods Frameworks */ = {
+		20CD1B226A345B6E3AD732E9 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -765,22 +767,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-百思不得姐/Pods-百思不得姐-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		AA2FB03FAC00FA01DEC6DC45 /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-百思不得姐/Pods-百思不得姐-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D640F8D1F44F44968D15E215 /* [CP] Check Pods Manifest.lock */ = {
+		55A8945A1335E117D0B12C04 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -792,7 +779,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		EA4C5FF40A458405CE38D997 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-百思不得姐/Pods-百思不得姐-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -957,7 +959,7 @@
 		};
 		B2AF8AEA1DAF376E0073E5E1 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 176F69547FCCC0EC904FB64E /* Pods-百思不得姐.debug.xcconfig */;
+			baseConfigurationReference = D5B6EDD3C7A001FDBA27838D /* Pods-百思不得姐.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -968,7 +970,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = JBBaiSi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "百思不得姐/Public/Other/百思不得姐-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/$(PROJECT_NAME)/Public/Other/Bais-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
@@ -976,7 +978,7 @@
 		};
 		B2AF8AEB1DAF376E0073E5E1 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7D9D39AFE373F6D8CFC324AB /* Pods-百思不得姐.release.xcconfig */;
+			baseConfigurationReference = 03E2607C43D1C1BA8376186C /* Pods-百思不得姐.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -987,7 +989,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = JBBaiSi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "百思不得姐/Public/Other/百思不得姐-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/$(PROJECT_NAME)/Public/Other/Bais-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
