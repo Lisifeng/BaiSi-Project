@@ -8,10 +8,11 @@
 
 import UIKit
 import CoreData
+import UserNotifications
 
 @available(iOS 10.0, *)
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate ,UNUserNotificationCenterDelegate{
 
     var window: UIWindow?
 
@@ -20,8 +21,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         let bsTabBarController = BSTabBarController()
         self.window?.rootViewController = bsTabBarController
-
+        pushFunction()
         return true
+    }
+    
+    func pushFunction() -> () {
+        if #available(iOS 10.0, *) {
+            let notifiCenter = UNUserNotificationCenter.current()
+            notifiCenter.delegate = self
+            let types = UNAuthorizationOptions(arrayLiteral: [.alert, .badge, .sound])
+            notifiCenter.requestAuthorization(options: types) { (flag, error) in
+                if flag {
+                    JBLog("iOS request notification success")
+                }else{
+                    JBLog(" iOS 10 request notification fail")
+                }
+            }
+        } else { //iOS8,iOS9注册通知
+            let setting = UIUserNotificationSettings.init(types: [.alert,.badge,.sound], categories: nil)
+            UIApplication.shared.registerUserNotificationSettings(setting)
+        }
+        
+        UIApplication.shared.registerForRemoteNotifications()
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

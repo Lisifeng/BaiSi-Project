@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2DE607336C2B0614F5F5D504 /* Pods______.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53C5ABF7D266625E7010D7EE /* Pods______.framework */; };
 		B22C4C021DE8205B007F5A5A /* BSMe_set_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B22C4C011DE8205B007F5A5A /* BSMe_set_icon@2x.png */; };
 		B22C4C041DE829F4007F5A5A /* BSSetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22C4C031DE829F4007F5A5A /* BSSetViewController.swift */; };
 		B22C4C061DE82D29007F5A5A /* BSFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22C4C051DE82D29007F5A5A /* BSFileManager.swift */; };
@@ -74,26 +73,20 @@
 		B2CEF0621DB0A88900F26C45 /* BSColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CEF0611DB0A88900F26C45 /* BSColor.swift */; };
 		B2D444471DC97D1400C2F483 /* JHB_BridgeFile.m in Sources */ = {isa = PBXBuildFile; fileRef = B2D444461DC97D1400C2F483 /* JHB_BridgeFile.m */; };
 		B2E15BEE1DC9C80900602C97 /* secNextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E15BED1DC9C80900602C97 /* secNextViewController.swift */; };
-		EF170FE51EC1EA2A009F221F /* JHB_HUDView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF170FE01EC1EA2A009F221F /* JHB_HUDView.framework */; };
-		EF170FE61EC1EA2A009F221F /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF170FE11EC1EA2A009F221F /* Kingfisher.framework */; };
-		EF170FE71EC1EA2A009F221F /* MJRefresh.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF170FE21EC1EA2A009F221F /* MJRefresh.framework */; };
-		EF170FE91EC1EA2A009F221F /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF170FE41EC1EA2A009F221F /* SnapKit.framework */; };
+		EF239E0A1EC94CCF00C5A28D /* Pods______.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF239E091EC94CCF00C5A28D /* Pods______.framework */; };
+		EF239E0C1EC94CDC00C5A28D /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF239E0B1EC94CDC00C5A28D /* Kingfisher.framework */; };
 		EF5BE2D11DB1D80E00BC5D89 /* BSNavgationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5BE2D01DB1D80E00BC5D89 /* BSNavgationView.swift */; };
-		EF6A694B1EB336F30097A22C /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF6A694A1EB336F30097A22C /* AVFoundation.framework */; };
 		EF92C65D1DBE46ED00698970 /* back_image@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EF92C65B1DBE46ED00698970 /* back_image@2x.png */; };
 		EF92C65E1DBE46ED00698970 /* dismiss_image@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EF92C65C1DBE46ED00698970 /* dismiss_image@2x.png */; };
-		EF92C6601DBE63C300698970 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF92C65F1DBE63C300698970 /* Alamofire.framework */; };
 		EF92C6621DBF887700698970 /* BSTopListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF92C6611DBF887700698970 /* BSTopListView.swift */; };
 		EF92C6641DBF89B200698970 /* BSPictueViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF92C6631DBF89B200698970 /* BSPictueViewCell.swift */; };
 		EF92C6661DC0EA7F00698970 /* BSCheckImageDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF92C6651DC0EA7F00698970 /* BSCheckImageDetailView.swift */; };
 		EF92C6681DC0F66300698970 /* redBack_image@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EF92C6671DC0F66300698970 /* redBack_image@2x.png */; };
 		EFA6AD211DDB535C00FCBFE0 /* BSMe_message_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EFA6AD201DDB535C00FCBFE0 /* BSMe_message_icon@2x.png */; };
-		EFC233DE1EC29D4C00EDE0D7 /* PhotosUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFC233DD1EC29D4C00EDE0D7 /* PhotosUI.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		03E2607C43D1C1BA8376186C /* Pods-百思不得姐.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-百思不得姐.release.xcconfig"; path = "Pods/Target Support Files/Pods-百思不得姐/Pods-百思不得姐.release.xcconfig"; sourceTree = "<group>"; };
-		53C5ABF7D266625E7010D7EE /* Pods______.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods______.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B22C4C011DE8205B007F5A5A /* BSMe_set_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BSMe_set_icon@2x.png"; sourceTree = "<group>"; };
 		B22C4C031DE829F4007F5A5A /* BSSetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BSSetViewController.swift; sourceTree = "<group>"; };
 		B22C4C051DE82D29007F5A5A /* BSFileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BSFileManager.swift; sourceTree = "<group>"; };
@@ -165,23 +158,16 @@
 		B2D444461DC97D1400C2F483 /* JHB_BridgeFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHB_BridgeFile.m; sourceTree = "<group>"; };
 		B2E15BED1DC9C80900602C97 /* secNextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = secNextViewController.swift; sourceTree = "<group>"; };
 		D5B6EDD3C7A001FDBA27838D /* Pods-百思不得姐.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-百思不得姐.debug.xcconfig"; path = "Pods/Target Support Files/Pods-百思不得姐/Pods-百思不得姐.debug.xcconfig"; sourceTree = "<group>"; };
-		EF170FE01EC1EA2A009F221F /* JHB_HUDView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JHB_HUDView.framework; path = "../Library/Developer/Xcode/DerivedData/百思不得姐-dchcyarkewuprodvgmexgurscskk/Build/Products/Debug-iphonesimulator/JHB_HUDView/JHB_HUDView.framework"; sourceTree = "<group>"; };
-		EF170FE11EC1EA2A009F221F /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = "../Library/Developer/Xcode/DerivedData/百思不得姐-dchcyarkewuprodvgmexgurscskk/Build/Products/Debug-iphonesimulator/Kingfisher/Kingfisher.framework"; sourceTree = "<group>"; };
-		EF170FE21EC1EA2A009F221F /* MJRefresh.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MJRefresh.framework; path = "../Library/Developer/Xcode/DerivedData/百思不得姐-dchcyarkewuprodvgmexgurscskk/Build/Products/Debug-iphonesimulator/MJRefresh/MJRefresh.framework"; sourceTree = "<group>"; };
-		EF170FE31EC1EA2A009F221F /* pop.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = pop.framework; path = "../Library/Developer/Xcode/DerivedData/百思不得姐-dchcyarkewuprodvgmexgurscskk/Build/Products/Debug-iphonesimulator/pop/pop.framework"; sourceTree = "<group>"; };
-		EF170FE41EC1EA2A009F221F /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = "../Library/Developer/Xcode/DerivedData/百思不得姐-dchcyarkewuprodvgmexgurscskk/Build/Products/Debug-iphonesimulator/SnapKit/SnapKit.framework"; sourceTree = "<group>"; };
+		EF239E091EC94CCF00C5A28D /* Pods______.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "Pods______.framework"; path = "Pods/../build/Release-iphoneos/Pods______.framework"; sourceTree = "<group>"; };
+		EF239E0B1EC94CDC00C5A28D /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = "../Library/Developer/Xcode/DerivedData/百思不得姐-dchcyarkewuprodvgmexgurscskk/Build/Products/Debug-iphonesimulator/Kingfisher/Kingfisher.framework"; sourceTree = "<group>"; };
 		EF5BE2D01DB1D80E00BC5D89 /* BSNavgationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BSNavgationView.swift; sourceTree = "<group>"; };
-		EF6A694A1EB336F30097A22C /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		EF6A694C1EB338790097A22C /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		EF92C65B1DBE46ED00698970 /* back_image@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back_image@2x.png"; sourceTree = "<group>"; };
 		EF92C65C1DBE46ED00698970 /* dismiss_image@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dismiss_image@2x.png"; sourceTree = "<group>"; };
-		EF92C65F1DBE63C300698970 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "../../Library/Developer/Xcode/DerivedData/百思不得姐-gccxosdidimpksakgtjvmodzrpvq/Build/Products/Debug-iphonesimulator/Alamofire/Alamofire.framework"; sourceTree = "<group>"; };
 		EF92C6611DBF887700698970 /* BSTopListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BSTopListView.swift; sourceTree = "<group>"; };
 		EF92C6631DBF89B200698970 /* BSPictueViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BSPictueViewCell.swift; sourceTree = "<group>"; };
 		EF92C6651DC0EA7F00698970 /* BSCheckImageDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BSCheckImageDetailView.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		EF92C6671DC0F66300698970 /* redBack_image@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "redBack_image@2x.png"; sourceTree = "<group>"; };
 		EFA6AD201DDB535C00FCBFE0 /* BSMe_message_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BSMe_message_icon@2x.png"; sourceTree = "<group>"; };
-		EFC233DD1EC29D4C00EDE0D7 /* PhotosUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PhotosUI.framework; path = System/Library/Frameworks/PhotosUI.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,14 +175,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EFC233DE1EC29D4C00EDE0D7 /* PhotosUI.framework in Frameworks */,
-				EF170FE51EC1EA2A009F221F /* JHB_HUDView.framework in Frameworks */,
-				EF170FE61EC1EA2A009F221F /* Kingfisher.framework in Frameworks */,
-				EF170FE71EC1EA2A009F221F /* MJRefresh.framework in Frameworks */,
-				EF170FE91EC1EA2A009F221F /* SnapKit.framework in Frameworks */,
-				EF6A694B1EB336F30097A22C /* AVFoundation.framework in Frameworks */,
-				EF92C6601DBE63C300698970 /* Alamofire.framework in Frameworks */,
-				2DE607336C2B0614F5F5D504 /* Pods______.framework in Frameworks */,
+				EF239E0C1EC94CDC00C5A28D /* Kingfisher.framework in Frameworks */,
+				EF239E0A1EC94CCF00C5A28D /* Pods______.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -206,16 +186,8 @@
 		756A41D67549E7B35774F770 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				EFC233DD1EC29D4C00EDE0D7 /* PhotosUI.framework */,
-				EF170FE01EC1EA2A009F221F /* JHB_HUDView.framework */,
-				EF170FE11EC1EA2A009F221F /* Kingfisher.framework */,
-				EF170FE21EC1EA2A009F221F /* MJRefresh.framework */,
-				EF170FE31EC1EA2A009F221F /* pop.framework */,
-				EF170FE41EC1EA2A009F221F /* SnapKit.framework */,
-				EF6A694C1EB338790097A22C /* AssetsLibrary.framework */,
-				EF6A694A1EB336F30097A22C /* AVFoundation.framework */,
-				EF92C65F1DBE63C300698970 /* Alamofire.framework */,
-				53C5ABF7D266625E7010D7EE /* Pods______.framework */,
+				EF239E0B1EC94CDC00C5A28D /* Kingfisher.framework */,
+				EF239E091EC94CCF00C5A28D /* Pods______.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -967,6 +939,14 @@
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = AUU237XZLK;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/JHB_HUDView",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/Kingfisher",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/MJRefresh",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/SnapKit",
+					"$(PROJECT_DIR)/build/Release-iphoneos",
+				);
 				INFOPLIST_FILE = "百思不得姐/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -986,6 +966,14 @@
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = AUU237XZLK;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/JHB_HUDView",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/Kingfisher",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/MJRefresh",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/SnapKit",
+					"$(PROJECT_DIR)/build/Release-iphoneos",
+				);
 				INFOPLIST_FILE = "百思不得姐/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
