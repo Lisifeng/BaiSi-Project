@@ -10,7 +10,7 @@ import UIKit
 import MJRefresh
 import Alamofire
 import JHB_HUDView
-
+import Kingfisher
 class EssenceViewController: BSThemeViewController , UIScrollViewDelegate , UITableViewDelegate , UITableViewDataSource,BSPictueViewCellDelegate{
     
     //MARK: - Parameters
@@ -190,7 +190,7 @@ extension EssenceViewController {
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.65) {
             JBLog("延时提交的任务")
             (self.tableViewArray[self._curIndex] as! UITableView).mj_header.endRefreshing()
-            (self.tableViewArray[self._curIndex] as! UITableView).mj_footer.endRefreshing()
+            //(self.tableViewArray[self._curIndex] as! UITableView).mj_footer.endRefreshing()
             JHB_HUDView.showMsg("假装刷新了数据")
         }
     }
@@ -229,13 +229,13 @@ extension EssenceViewController {
         // 顶部刷新
         let header = MJRefreshNormalHeader()
         // 底部刷新
-        let footer = MJRefreshAutoNormalFooter()
+        //let footer = MJRefreshAutoNormalFooter()
         // 下拉刷新
         header.setRefreshingTarget(self, refreshingAction: #selector(EssenceViewController.headerRefresh(page:)))
         // 上拉刷新
-        footer.setRefreshingTarget(self, refreshingAction: #selector(EssenceViewController.footerRefresh(page:)))
+        //footer.setRefreshingTarget(self, refreshingAction: #selector(EssenceViewController.footerRefresh(page:)))
         contentTableV.mj_header = header
-        contentTableV.mj_footer = footer
+        //contentTableV.mj_footer = footer
         
         if index == 0 {
             contentTableV.isHidden = true
@@ -294,6 +294,14 @@ extension EssenceViewController {
             }
             cell?.textLabel?.text = "Essence"+"\(tableView.tag)"
             return cell!
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if tableView.tag == 0 || tableView.tag == 1 {
+            if let resultCell = cell as? BSPictueViewCell {
+                resultCell.showImageView.kf.cancelDownloadTask()
+            }
         }
     }
     
@@ -442,14 +450,14 @@ extension EssenceViewController {
         let CurrentPage = "\(_currentVideoPage)"
         let params = ["showapi_appid":BSAPPID,"showapi_sign":BSAPPKEY,"type":"41","page":CurrentPage]
         
-        Alamofire.request(BSAPPARRESS, method: .get,parameters: params).responseJSON { (response) in
+        Alamofire.request(BSAPPARRESS, method: .get,parameters: params).responseJSON {[weak self] (response) in
             guard let JSON = response.result.value else { return }
             let codeValue = (JSON as! NSDictionary).object(forKey: "showapi_res_code") as! NSInteger
-            (self.tableViewArray[1] as! UITableView).mj_header.endRefreshing()
-            (self.tableViewArray[1] as! UITableView).mj_footer.endRefreshing()
+            (self?.tableViewArray[1] as! UITableView).mj_header.endRefreshing()
+            //(self?.tableViewArray[1] as! UITableView).mj_footer.endRefreshing()
             JHB_HUDView.hideProgress()
             if codeValue == 0{
-                self.dealVideoWithResult(JSON: JSON as! NSDictionary)
+                self?.dealVideoWithResult(JSON: JSON as! NSDictionary)
             }else {
                 let error = (JSON as! NSDictionary).object(forKey: "showapi_res_error") as! NSString
                 JBLog("\(error)")
@@ -465,7 +473,6 @@ extension EssenceViewController {
         if self._currentVideoPage == 1{
             self.videoMuArr.removeAllObjects()
         }
-        _ = NSDictionary()
         for contentDic in contentlist{
             let contentM = BSContentModel(dict: (contentDic as! NSDictionary) as! [String : Any] as! [String : NSObject])
             self.videoMuArr.add(contentM)
@@ -477,27 +484,32 @@ extension EssenceViewController {
     
     ///  About Picture
     func getPictureNetWorksWithPage(page:NSInteger)  {
+        
         JHB_HUDView.showProgressWithType(HUDType.kHUDTypeShowSlightly)
         _currentPictruePage = page
         let CurrentPage = "\(_currentPictruePage)"
         let params = ["showapi_appid":BSAPPID,"showapi_sign":BSAPPKEY,"type":"10","page":CurrentPage]
         
-        Alamofire.request(BSAPPARRESS, method: .get,parameters: params).responseJSON { (response) in
+        Alamofire.request(BSAPPARRESS, method: .get,parameters: params).responseJSON {[weak self] (response) in
             guard let JSON = response.result.value else { return }
             let codeValue = (JSON as! NSDictionary).object(forKey: "showapi_res_code") as! NSInteger
-            (self.tableViewArray[0] as! UITableView).mj_header.endRefreshing()
-            (self.tableViewArray[0] as! UITableView).mj_footer.endRefreshing()
+            KingfisherManager.shared.cache.clearMemoryCache()
+            KingfisherManager.shared.cache.clearDiskCache()
+            (self?.tableViewArray[0] as! UITableView).mj_header.endRefreshing()
+            //(self?.tableViewArray[0] as! UITableView).mj_footer.endRefreshing()
             JHB_HUDView.hideProgress()
             if codeValue == 0{
-                self.dealPictrueWithResult(JSON: JSON as! NSDictionary)
+                self?.dealPictrueWithResult(JSON: JSON as! NSDictionary)
             }else {
                 let error = (JSON as! NSDictionary).object(forKey: "showapi_res_error") as! NSString
                 JBLog("\(error)")
             }
         }
+ 
     }
     
     func dealPictrueWithResult(JSON:NSDictionary) {
+        
         let showapi_res_bodyDic = JSON.object(forKey: "showapi_res_body")
         let pagebean = (showapi_res_bodyDic as! NSDictionary).object(forKey: "pagebean")
         let contentlist = (pagebean as! NSDictionary).object(forKey: "contentlist") as! NSArray
@@ -505,12 +517,12 @@ extension EssenceViewController {
         if self._currentPictruePage == 1{
             self.pictureMuArr.removeAllObjects()
         }
-        _ = NSDictionary()
         for contentDic in contentlist{
             let contentM = BSContentModel(dict: (contentDic as! NSDictionary) as! [String : Any] as! [String : NSObject])
             self.pictureMuArr.add(contentM)
         }
         (self.tableViewArray[0] as! UITableView).isHidden = false
         (self.tableViewArray[0] as! UITableView).reloadData()
+
     }
 }

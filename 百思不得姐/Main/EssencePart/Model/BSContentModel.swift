@@ -47,8 +47,10 @@ class BSContentModel: NSObject {
         setValuesForKeys(dict)
     }
     override func setValue(_ value: Any?, forUndefinedKey key: String) {
-        if key=="id" {
-            self.ID = value as! String
+        if key == "id" {
+            if let valueString = value as? String {
+                self.ID = valueString
+            }
         }
     }
     

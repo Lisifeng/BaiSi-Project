@@ -36,7 +36,10 @@ class BSCheckVideoController: UIViewController {
     
     func setPlayerViewWithUrl(url:NSString) {
         // 检测连接是否存在 不存在报错
-        playerItem = AVPlayerItem(url:URL.init(string: url as String)!) // 创建视频资源
+        guard let URL = URL.init(string: url as String) else {
+            return
+        }
+        playerItem = AVPlayerItem(url:URL) // 创建视频资源
         // 监听缓冲进度改变
         playerItem?.addObserver(self, forKeyPath: "loadedTimeRanges", options: NSKeyValueObservingOptions.new, context: nil)
         // 监听状态改变
@@ -62,11 +65,10 @@ class BSCheckVideoController: UIViewController {
     }
     
     deinit{
-        playerItem?.removeObserver(self, forKeyPath: "loadedTimeRanges")
-        playerItem?.removeObserver(self, forKeyPath: "status")
+        JBLog("❤️ Deinit -> \(self)")
     }
     
-    
+    //- (void)observeValueForKeyPath:(nullable NSString *)keyPath ofObject:(nullable id)object change:(nullable NSDictionary<NSKeyValueChangeKey, id> *)change context:(nullable void *)context;
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         guard let playerItem = object as? AVPlayerItem else { return }
         if keyPath == "loadedTimeRanges"{
@@ -119,7 +121,11 @@ class BSCheckVideoController: UIViewController {
     
     func backMainFace() {
         self.avplayer.pause()
-        
+        self.link.remove(from: RunLoop.main, forMode: RunLoopMode.defaultRunLoopMode)
+        self.link.invalidate()
+        self.link = nil
+        playerItem?.removeObserver(self, forKeyPath: "loadedTimeRanges")
+        playerItem?.removeObserver(self, forKeyPath: "status")
         self.dismiss(animated: false, completion: nil)
     }
     override func didReceiveMemoryWarning() {
@@ -128,3 +134,4 @@ class BSCheckVideoController: UIViewController {
     }
 
 }
+

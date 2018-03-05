@@ -235,24 +235,18 @@ class HeaderView: UIView {
     }
     
     func addSubViewsWithF(frame:CGRect) {
-        
-        bgImageView = UIImageView.init()
+
         bgImageView.image = UIImage.init(named: "BSMe_homeBgPlace_image")
         bgImageView.contentMode = UIViewContentMode.scaleAspectFill
         
-        contentView = UIView.init()
         contentView.backgroundColor = UIColor.white
         
-        iconImageView = UIImageView.init()
         iconImageView.image = UIImage.init(named: "BSMe_homeIconPlace_image")
         iconImageView.layer.cornerRadius = 25
         iconImageView.layer.masksToBounds = true
         iconImageView.layer.borderColor = BSColor.colorWithHex(0xffffff).cgColor
         iconImageView.layer.borderWidth = 2
         iconImageView.contentMode = UIViewContentMode.scaleToFill
-        
-       
-        
         
         self.addSubview(bgImageView)
         self.addSubview(contentView)

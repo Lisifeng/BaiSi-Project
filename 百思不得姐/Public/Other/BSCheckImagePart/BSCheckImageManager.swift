@@ -121,13 +121,12 @@ class BSCheckImageManager: NSObject,UIViewControllerTransitioningDelegate, UIVie
                     let toView = transitionContext.view(forKey: UITransitionContextViewKey.to)
                     
                     transitionContext.containerView.addSubview(toView!)
-                    }, completion: { (true) in
+                }, completion: { (true) in
                         //7.通知系统,动画执行完毕
                         //注意点: 但凡是自定义转场, 一定要在自定义动画完成之后告诉系统动画已经完成了, 否则会出现一些未知异常
                         transitionContext.completeTransition(true)
                 })
-        }
-        
+            }
     }
     
     

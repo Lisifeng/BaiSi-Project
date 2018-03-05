@@ -83,10 +83,12 @@
 		EF92C6661DC0EA7F00698970 /* BSCheckImageDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF92C6651DC0EA7F00698970 /* BSCheckImageDetailView.swift */; };
 		EF92C6681DC0F66300698970 /* redBack_image@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EF92C6671DC0F66300698970 /* redBack_image@2x.png */; };
 		EFA6AD211DDB535C00FCBFE0 /* BSMe_message_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EFA6AD201DDB535C00FCBFE0 /* BSMe_message_icon@2x.png */; };
+		FD46D449C770237C9D08791F /* Pods______.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53607B05D098CA99D3D94D31 /* Pods______.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		03E2607C43D1C1BA8376186C /* Pods-百思不得姐.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-百思不得姐.release.xcconfig"; path = "Pods/Target Support Files/Pods-百思不得姐/Pods-百思不得姐.release.xcconfig"; sourceTree = "<group>"; };
+		53607B05D098CA99D3D94D31 /* Pods______.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods______.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B22C4C011DE8205B007F5A5A /* BSMe_set_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BSMe_set_icon@2x.png"; sourceTree = "<group>"; };
 		B22C4C031DE829F4007F5A5A /* BSSetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BSSetViewController.swift; sourceTree = "<group>"; };
 		B22C4C051DE82D29007F5A5A /* BSFileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BSFileManager.swift; sourceTree = "<group>"; };
@@ -136,7 +138,7 @@
 		B2AF8AE11DAF376E0073E5E1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B2AF8AF41DAF631D0073E5E1 /* BSAppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BSAppDelegate.swift; sourceTree = "<group>"; };
 		B2AF8AF51DAF631D0073E5E1 /* BSPublicNavController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BSPublicNavController.swift; sourceTree = "<group>"; };
-		B2AF8B001DAF63BD0073E5E1 /* _____.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "_____.xcdatamodel"; sourceTree = "<group>"; };
+		B2AF8B001DAF63BD0073E5E1 /* _____.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = _____.xcdatamodel; sourceTree = "<group>"; };
 		B2AF8B021DAF63BD0073E5E1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B2AF8B041DAF63BD0073E5E1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B2AF8B0A1DAF64E10073E5E1 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -158,7 +160,7 @@
 		B2D444461DC97D1400C2F483 /* JHB_BridgeFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHB_BridgeFile.m; sourceTree = "<group>"; };
 		B2E15BED1DC9C80900602C97 /* secNextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = secNextViewController.swift; sourceTree = "<group>"; };
 		D5B6EDD3C7A001FDBA27838D /* Pods-百思不得姐.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-百思不得姐.debug.xcconfig"; path = "Pods/Target Support Files/Pods-百思不得姐/Pods-百思不得姐.debug.xcconfig"; sourceTree = "<group>"; };
-		EF239E091EC94CCF00C5A28D /* Pods______.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "Pods______.framework"; path = "Pods/../build/Release-iphoneos/Pods______.framework"; sourceTree = "<group>"; };
+		EF239E091EC94CCF00C5A28D /* Pods______.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods______.framework; path = "Pods/../build/Release-iphoneos/Pods______.framework"; sourceTree = "<group>"; };
 		EF239E0B1EC94CDC00C5A28D /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = "../Library/Developer/Xcode/DerivedData/百思不得姐-dchcyarkewuprodvgmexgurscskk/Build/Products/Debug-iphonesimulator/Kingfisher/Kingfisher.framework"; sourceTree = "<group>"; };
 		EF5BE2D01DB1D80E00BC5D89 /* BSNavgationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BSNavgationView.swift; sourceTree = "<group>"; };
 		EF92C65B1DBE46ED00698970 /* back_image@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back_image@2x.png"; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 			files = (
 				EF239E0C1EC94CDC00C5A28D /* Kingfisher.framework in Frameworks */,
 				EF239E0A1EC94CCF00C5A28D /* Pods______.framework in Frameworks */,
+				FD46D449C770237C9D08791F /* Pods______.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -188,6 +191,7 @@
 			children = (
 				EF239E0B1EC94CDC00C5A28D /* Kingfisher.framework */,
 				EF239E091EC94CCF00C5A28D /* Pods______.framework */,
+				53607B05D098CA99D3D94D31 /* Pods______.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -219,9 +223,7 @@
 			isa = PBXGroup;
 			children = (
 				B267BEBF1DB4CFD10012CCB7 /* Controller */,
-				B267BEC11DB4CFD10012CCB7 /* Model */,
 				B267BEC21DB4CFD10012CCB7 /* Other */,
-				B267BEC31DB4CFD10012CCB7 /* View */,
 			);
 			path = ConcernPart;
 			sourceTree = "<group>";
@@ -234,25 +236,11 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		B267BEC11DB4CFD10012CCB7 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		B267BEC21DB4CFD10012CCB7 /* Other */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			path = Other;
-			sourceTree = "<group>";
-		};
-		B267BEC31DB4CFD10012CCB7 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		B267BEC41DB4CFD10012CCB7 /* EssencePart */ = {
@@ -261,7 +249,6 @@
 				B267BEC51DB4CFD10012CCB7 /* Controller */,
 				B267BEC71DB4CFD10012CCB7 /* Model */,
 				B267BEC81DB4CFD10012CCB7 /* Other */,
-				B267BEC91DB4CFD10012CCB7 /* View */,
 			);
 			path = EssencePart;
 			sourceTree = "<group>";
@@ -269,6 +256,7 @@
 		B267BEC51DB4CFD10012CCB7 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				B267BEC91DB4CFD10012CCB7 /* View */,
 				B267BEC61DB4CFD10012CCB7 /* EssenceViewController.swift */,
 				B28B6B9F1DBDE2B900BA8D12 /* nextViewController.swift */,
 				B2E15BED1DC9C80900602C97 /* secNextViewController.swift */,
@@ -296,14 +284,14 @@
 			children = (
 				EF92C6631DBF89B200698970 /* BSPictueViewCell.swift */,
 			);
-			path = View;
+			name = View;
+			path = ../View;
 			sourceTree = "<group>";
 		};
 		B267BECA1DB4CFD10012CCB7 /* MePart */ = {
 			isa = PBXGroup;
 			children = (
 				B267BECB1DB4CFD10012CCB7 /* Controller */,
-				B267BECD1DB4CFD10012CCB7 /* Model */,
 				B267BECE1DB4CFD10012CCB7 /* Other */,
 				B267BECF1DB4CFD10012CCB7 /* View */,
 			);
@@ -318,13 +306,6 @@
 				B22C4C031DE829F4007F5A5A /* BSSetViewController.swift */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		B267BECD1DB4CFD10012CCB7 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		B267BECE1DB4CFD10012CCB7 /* Other */ = {
@@ -348,9 +329,7 @@
 			isa = PBXGroup;
 			children = (
 				B267BED11DB4CFD10012CCB7 /* Controller */,
-				B267BED31DB4CFD10012CCB7 /* Model */,
 				B267BED41DB4CFD10012CCB7 /* Other */,
-				B267BED51DB4CFD10012CCB7 /* View */,
 			);
 			path = NewestPart;
 			sourceTree = "<group>";
@@ -363,13 +342,6 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		B267BED31DB4CFD10012CCB7 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		B267BED41DB4CFD10012CCB7 /* Other */ = {
 			isa = PBXGroup;
 			children = (
@@ -377,18 +349,10 @@
 			path = Other;
 			sourceTree = "<group>";
 		};
-		B267BED51DB4CFD10012CCB7 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		B267BED61DB4CFD10012CCB7 /* ReleasePart */ = {
 			isa = PBXGroup;
 			children = (
 				B267BED71DB4CFD10012CCB7 /* Controller */,
-				B267BED91DB4CFD10012CCB7 /* Model */,
 				B267BEDA1DB4CFD10012CCB7 /* Other */,
 				B267BEDB1DB4CFD10012CCB7 /* View */,
 			);
@@ -401,13 +365,6 @@
 				B267BED81DB4CFD10012CCB7 /* ReleaseViewController.swift */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		B267BED91DB4CFD10012CCB7 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		B267BEDA1DB4CFD10012CCB7 /* Other */ = {
@@ -507,7 +464,6 @@
 			isa = PBXGroup;
 			children = (
 				B2AF8AF31DAF631D0073E5E1 /* Controller */,
-				B2AF8AF61DAF631D0073E5E1 /* Model */,
 				B2AF8AF71DAF631D0073E5E1 /* Other */,
 				B2AF8AF81DAF631D0073E5E1 /* View */,
 			);
@@ -523,13 +479,6 @@
 				B267BEE11DB4D1CE0012CCB7 /* BSThemeViewController.swift */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		B2AF8AF61DAF631D0073E5E1 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		B2AF8AF71DAF631D0073E5E1 /* Other */ = {
@@ -730,9 +679,20 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-百思不得姐/Pods-百思不得姐-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/JHB_HUDView/JHB_HUDView.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JHB_HUDView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -745,13 +705,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-百思不得姐-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		EA4C5FF40A458405CE38D997 /* [CP] Copy Pods Resources */ = {
@@ -1014,7 +977,7 @@
 				B2AF8B001DAF63BD0073E5E1 /* _____.xcdatamodel */,
 			);
 			currentVersion = B2AF8B001DAF63BD0073E5E1 /* _____.xcdatamodel */;
-			path = "_____.xcdatamodeld";
+			path = _____.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
